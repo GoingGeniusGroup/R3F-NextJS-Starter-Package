@@ -76,7 +76,7 @@ Thanks to [tunnel-rat](https://github.com/pmndrs/tunnel-rat) the starter can por
 ### How to contribute :
 
 ```bash
-git clone https://github.com/gg-ayush/R3F-NextJS-Starter-Package
+git clone https://github.com/gg-ayush/R3F-NextJS-Starter-Package.git
 && cd react-three-next && yarn install
 ```
 
