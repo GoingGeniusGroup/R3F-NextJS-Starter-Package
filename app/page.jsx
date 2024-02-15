@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Dog = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Dog), { ssr: false })
+const Avatar = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
 const Duck = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Duck), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -29,9 +30,11 @@ export default function Page() {
       <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
         {/* jumbo */}
         <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <p className='w-full uppercase'>Next + React Three Fiber</p>
+          <p className='w-full uppercase'>Next + React Three Fiber GG-User Module</p>
           <h1 className='my-4 text-5xl font-bold leading-tight'>Next 3D Starter</h1>
-          <p className='mb-8 text-2xl leading-normal'>A minimalist starter for React, React-three-fiber and Threejs.</p>
+          <p className='mb-8 text-2xl leading-normal'>A minimalist starter for React, React-three-fiber and Threejs with Avatar creator and User Auth.
+          Integrating StoryBook, component standarization will be easier.
+          </p>
         </div>
 
         <div className='w-full text-center md:w-3/5'>
@@ -47,13 +50,13 @@ export default function Page() {
       <div className='mx-auto flex w-full flex-col flex-wrap items-center p-12 md:flex-row  lg:w-4/5'>
         {/* first row */}
         <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Events are propagated</h2>
+          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Your Avatars are propagated</h2>
           <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
         </div>
         <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
           <View orbit className='relative h-full  sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
-              <Dog scale={2} position={[0, -1.6, 0]} rotation={[0.0, -0.3, 0]} />
+              <Avatar scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0.4, 0]} />
               <Common color={'lightpink'} />
             </Suspense>
           </View>
