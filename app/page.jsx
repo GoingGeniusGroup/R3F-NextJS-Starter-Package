@@ -4,9 +4,8 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
-const Dog = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Dog), { ssr: false })
 const Avatar = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
-const Duck = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Duck), { ssr: false })
+const Avatar_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
@@ -52,12 +51,19 @@ export default function Page() {
         <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
           <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Your Avatars are propagated</h2>
           <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
+          <a className='mb-8 text-blue-600' href='https://gguser.readyplayer.me/avatar?frameApi'>Download your Avatar from here using Ready Player Me.</a>
+          <p className='mb-8 text-gray-600'>
+            To get resources to generate your avatar in different poses,file-format, quality: You can visit this...  
+            <a className='mb-8 text-blue-600' href='https://docs.google.com/spreadsheets/d/1bDsUj-m5wBob4ps1g2d1YFN90HoLANMxi13KvetPhs0/edit?usp=sharing'>
+              link
+            </a> 
+          </p>
         </div>
         <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
           <View orbit className='relative h-full  sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
-              <Avatar scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0.4, 0]} />
-              <Common color={'lightpink'} />
+              <Avatar scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0, 0]} />
+              <Common color={'lightyellow'} />
             </Suspense>
           </View>
         </div>
@@ -65,7 +71,7 @@ export default function Page() {
         <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
           <View orbit className='relative h-full animate-bounce sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
-              <Duck route='/blob' scale={2} position={[0, -1.6, 0]} />
+              <Avatar_1 scale={2} position={[0, -1.6, 0]} />
               <Common color={'lightblue'} />
             </Suspense>
           </View>
