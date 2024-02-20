@@ -33,7 +33,7 @@ return (
             <p>Join for free.</p>
             <p>One Genius Account for all Genius Platform</p>
         </div>
-        <div className="flex justify-center items-center rounded-t-3xl bg-white bg-cyan-800 p-4 h-full">
+        <div className="flex justify-center items-center rounded-t-3xl bg-cyan-800 p-4 h-full">
         <form action="#" className="signup flex flex-col gap-4">
             <h1>SignUp</h1>
             <div className="email">
