@@ -27,7 +27,7 @@ export default function Page() {
 return (
 <div>
     <div className='signup-container bg-black h-screen'>
-        <div className="flex justify-center items-center rounded-t-3xl bg-white bg-cyan-800 p-4 h-full">
+        <div className="flex justify-center items-center rounded-t-3xl bg-cyan-800 p-4 h-full">
         <form action="#" className="signup flex flex-col gap-4">
             <div className="password">
             <label htmlFor="password">
