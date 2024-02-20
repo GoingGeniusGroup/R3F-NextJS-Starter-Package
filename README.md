@@ -23,8 +23,8 @@ This starter allows you to navigate seamlessly between pages with dynamic dom an
 _Tailwind is the default style. styled-components (styled) are also available._
 
 ```sh
-yarn create r3f-app next my-app
-# yarn create r3f-app <next> my-app <tailwind|styled>? -ts?
+npm create r3f-app next my-app
+# npm create r3f-app <next> my-app <tailwind|styled>? -ts?
 ```
 
 ### :passport_control: Typescript
@@ -32,7 +32,7 @@ yarn create r3f-app next my-app
 For typescript add the parameter `-ts` or `--typescript`:
 
 ```sh
-yarn create r3f-app next my-app -ts
+npm create r3f-app next my-app -ts
 ```
 
 ### :mount_fuji: Features
@@ -58,11 +58,11 @@ Thanks to [tunnel-rat](https://github.com/pmndrs/tunnel-rat) the starter can por
 
 ### :control_knobs: Available Scripts
 
-- `yarn dev` - Next dev
-- `yarn analyze` - Generate bundle-analyzer
-- `yarn lint` - Audit code quality
-- `yarn build` - Next build
-- `yarn start` - Next start
+- `npm dev` - Next dev
+- `npm analyze` - Generate bundle-analyzer
+- `npm lint` - Audit code quality
+- `npm build` - Next build
+- `npm start` - Next start
 
 ### ⬛ Stack
 
