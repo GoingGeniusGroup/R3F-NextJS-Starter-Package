@@ -1,8 +1,8 @@
-import { useEffect, FC, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
+import { FC, useEffect, useRef } from 'react';
+import { clamp, lerp } from 'src/services';
 import { Camera, Vector3 } from 'three';
 import { OrbitControls } from 'three-stdlib';
-import { clamp, lerp } from 'src/services';
 
 type CameraControlsProps = {
   // eslint-disable-next-line react/no-unused-prop-types
@@ -68,7 +68,7 @@ export const CameraControls: FC<CameraControlsProps> = ({
     }
 
     controls = new OrbitControls(camera, gl.domElement);
-    controls.enableRotate = false;
+    controls.enableRotate = true;
     controls.enablePan = false;
 
     controls.minDistance = headScaleAdjustedMinDistance;
