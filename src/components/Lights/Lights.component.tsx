@@ -1,5 +1,5 @@
 import { useThree } from '@react-three/fiber';
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { LightingProps } from 'src/types';
 import { definedProps } from 'src/utils/props';
 import { Object3D, Vector3 } from 'three';
@@ -55,7 +55,7 @@ const Lights: FC<LightingProps> = (lightingProps) => {
     // add targets to scene (without the spotlights would not aim at them)
     scene.add(targets.head);
     scene.add(targets.shoe);
-  }, []);
+  },);
 
   return (
     <group>

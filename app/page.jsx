@@ -81,7 +81,7 @@ export default function Page() {
         <div className='w-full p-6 sm:w-1/2'>
           <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Ready Player Me Downloaded .glb</h2>
           <p className='mb-8 text-gray-600'>
-           I have named this component 'Avatar_1'. To change your avatar model in this div, go to src/components/canvas/examples.jsx and change the "useGLTF('/avatar_1.glb')" to your file name.
+           I have named this component Avatar_1. To change your avatar model in this div, go to src/components/canvas/examples.jsx and change the /avatar_1.glb to your file name.
           </p>
         </div>
       </div>
@@ -90,8 +90,8 @@ export default function Page() {
           <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Your Animated Avatars are propagated</h2>
           <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
           <a className='mb-8 text-blue-600' href='https://gguser.readyplayer.me/avatar?frameApi'>Edit your Avatar from here using Ready Player Me.</a>
-          <p className='mb-8 text-gray-600'> Replace '65d5fe627fe6ce384b5195e6.glb' with your 'avatar_number.glb' in 'Avatar' component. And, change 'male-spawn-animation.fbx' with 'file_name.fbx' to change animation.
-           Animation reference files are located in '/public'.   
+          <p className='mb-8 text-gray-600'> Replace 65d5fe627fe6ce384b5195e6.glb with your avatar_number.glb in Avatar component. And, change male-spawn-animation.fbx with file_name.fbx to change animation.
+           Animation reference files are located in /public.   
           </p>
         </div>
       <div className='relative my-12 h-96 w-full py-6 sm:w-1/2 md:mb-40'>
