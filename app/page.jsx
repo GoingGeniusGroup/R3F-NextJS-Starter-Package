@@ -1,10 +1,12 @@
 'use client'
 
-import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import { Avatar } from 'src/components/Avatar';
+
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
-const Avatar = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
+const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
 const Avatar_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -62,7 +64,7 @@ export default function Page() {
         <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
           <View orbit className='relative h-full  sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
-              <Avatar scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0, 0]} />
+              <Avatar_2 scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0, 0]} />
               <Common color={'lightyellow'} />
             </Suspense>
           </View>
@@ -86,6 +88,19 @@ export default function Page() {
           </p>
         </div>
       </div>
+      <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
+          <Avatar 
+            modelSrc="https://models.readyplayer.me/658be9e8fc8bec93d06806f3.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
+            shadows
+            animationSrc="/male-spawn-animation.fbx"
+            style={{ background: 'rgb(9,20,26)' }}
+            fov={45}
+            effects={{
+              ambientOcclusion: true
+            }}>
+          </Avatar>
+          
+        </div>
     </>
   )
 }
