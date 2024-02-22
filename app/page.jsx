@@ -53,7 +53,7 @@ export default function Page() {
           <View orbit className='relative h-full sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
               <Text3D font='./fonts/Anta_Regular.json' position={[-3,-0.5,0]} rotation={[0,0.4,0]}>
-                Hello Genius!
+                Hello Genius Dev!
               </Text3D>
               <Common color={'black'} />
             </Suspense>
