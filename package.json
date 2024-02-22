@@ -20,6 +20,7 @@
     "@ducanh2912/next-pwa": "^10.0.0",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
+    "@react-three/postprocessing": "^2.16.0",
     "@readyplayerme/visage": "^5.0.1",
     "glsl-random": "^0.0.5",
     "next": "^14.0.4",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^14.0.4",
     "autoprefixer": "^10.4.16",
+    "encoding": "^0.1.13",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.1.0",

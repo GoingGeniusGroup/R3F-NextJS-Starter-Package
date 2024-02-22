@@ -1,11 +1,10 @@
 'use client'
 
-import { useGLTF } from '@react-three/drei'
+import { Line, MeshDistortMaterial, useCursor, useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import * as THREE from 'three'
-import { useMemo, useRef, useState } from 'react'
-import { Line, useCursor, MeshDistortMaterial } from '@react-three/drei'
 import { useRouter } from 'next/navigation'
+import { useMemo, useRef, useState } from 'react'
+import * as THREE from 'three'
 
 export const Blob = ({ route = '/', ...props }) => {
   const router = useRouter()
@@ -54,15 +53,26 @@ export const Logo = ({ route = '/blob', ...props }) => {
   )
 }
 
-export function Duck(props) {
-  const { scene } = useGLTF('/duck.glb')
+export function Avatar_1(props) {
+  const { scene } = useGLTF('/avatar_1.glb')
 
   useFrame((state, delta) => (scene.rotation.y += delta))
 
   return <primitive object={scene} {...props} />
 }
-export function Dog(props) {
-  const { scene } = useGLTF('/dog.glb')
+
+export function Avatar(props) {
+  const { scene } = useGLTF('/avatar.glb')
 
   return <primitive object={scene} {...props} />
 }
+
+export function Logo_1(props) {
+  const { scene } = useGLTF('/logo.glb')
+
+  return <primitive object={scene} {...props} />
+}
+
+
+
+
