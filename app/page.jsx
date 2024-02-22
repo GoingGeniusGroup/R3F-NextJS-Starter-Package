@@ -1,12 +1,13 @@
 'use client'
 
-import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import { Avatar } from 'src/components/Avatar';
+
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
-const Dog = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Dog), { ssr: false })
-const Avatar = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
-const Duck = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Duck), { ssr: false })
+const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
+const Avatar_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
@@ -41,7 +42,7 @@ export default function Page() {
           <View className='flex h-96 w-full flex-col items-center justify-center'>
             <Suspense fallback={null}>
               <Logo route='/blob' scale={0.6} position={[0, 0, 0]} />
-              <Common />
+              <Common color={'white'}/>
             </Suspense>
           </View>
         </div>
@@ -52,12 +53,19 @@ export default function Page() {
         <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
           <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Your Avatars are propagated</h2>
           <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
+          <a className='mb-8 text-blue-600' href='https://gguser.readyplayer.me/avatar?frameApi'>Download your Avatar from here using Ready Player Me.</a>
+          <p className='mb-8 text-gray-600'>
+            To get resources to generate your avatar in different poses,file-format, quality: You can visit this...  
+            <a className='mb-8 text-blue-600' href='https://docs.google.com/spreadsheets/d/1bDsUj-m5wBob4ps1g2d1YFN90HoLANMxi13KvetPhs0/edit?usp=sharing'>
+              link
+            </a> 
+          </p>
         </div>
         <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
           <View orbit className='relative h-full  sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
-              <Avatar scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0.4, 0]} />
-              <Common color={'lightpink'} />
+              <Avatar_2 scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0, 0]} />
+              <Common color={'lightyellow'} />
             </Suspense>
           </View>
         </div>
@@ -65,21 +73,42 @@ export default function Page() {
         <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
           <View orbit className='relative h-full animate-bounce sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
-              <Duck route='/blob' scale={2} position={[0, -1.6, 0]} />
+              <Avatar_1 scale={2} position={[0, -1.6, 0]} />
               <Common color={'lightblue'} />
             </Suspense>
           </View>
         </div>
         <div className='w-full p-6 sm:w-1/2'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Dom and 3D are synchronized</h2>
+          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Ready Player Me Downloaded .glb</h2>
           <p className='mb-8 text-gray-600'>
-            3D Divs are renderer through the View component. It uses gl.scissor to cut the viewport into segments. You
-            tie a view to a tracking div which then controls the position and bounds of the viewport. This allows you to
-            have multiple views with a single, performant canvas. These views will follow their tracking elements,
-            scroll along, resize, etc.
+           I have named this component Avatar_1. To change your avatar model in this div, go to src/components/canvas/examples.jsx and change the /avatar_1.glb to your file name.
           </p>
         </div>
       </div>
+      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
+      <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
+          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Your Animated Avatars are propagated</h2>
+          <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
+          <a className='mb-8 text-blue-600' href='https://gguser.readyplayer.me/avatar?frameApi'>Edit your Avatar from here using Ready Player Me.</a>
+          <p className='mb-8 text-gray-600'> Replace 65d5fe627fe6ce384b5195e6.glb with your avatar_number.glb in Avatar component. And, change male-spawn-animation.fbx with file_name.fbx to change animation.
+           Animation reference files are located in /public.   
+          </p>
+        </div>
+      <div className='relative my-12 h-96 w-full py-6 sm:w-1/2 md:mb-40'>
+          <Avatar 
+            modelSrc="https://models.readyplayer.me/65d5fe627fe6ce384b5195e6.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
+            shadows
+            animationSrc="/male-spawn-animation.fbx"
+            style={{ background: 'rgb(9,20,26)' }}
+            fov={45}
+            effects={{
+              ambientOcclusion: true
+            }}
+            >
+          </Avatar>
+          
+        </div>
+        </div>
     </>
   )
 }
