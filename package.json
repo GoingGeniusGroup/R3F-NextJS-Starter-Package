@@ -22,10 +22,12 @@
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.16.0",
     "@readyplayerme/visage": "^5.0.1",
+    "clsx": "^2.1.0",
     "glsl-random": "^0.0.5",
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.1",
     "three": "^0.160.0",
     "three-stdlib": "^2.28.9",
     "tunnel-rat": "^0.1.2"
