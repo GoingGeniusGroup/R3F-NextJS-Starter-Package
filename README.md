@@ -34,7 +34,47 @@ For typescript add the parameter `-ts` or `--typescript`:
 ```sh
 npm create r3f-app next my-app -ts
 ```
+# Installation
 
+Visage is available as an [npm package](https://www.npmjs.com/package/@readyplayerme/visage).
+```sh
+npm install @readyplayerme/visage
+```
+
+# Documentation & examples
+
+You can find all **code examples** of the components and their **documentation** on [our GitHub page](https://readyplayerme.github.io/visage/).
+
+Here is the first one to get you started:
+```typescript jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Avatar } from '@readyplayerme/visage';
+
+const modelSrc = 'https://readyplayerme.github.io/visage/male.glb';
+
+function App() {
+  return (
+    <Avatar modelSrc={modelSrc} />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+### Validation
+Props such as `modelSrc`, `animationSrc`, `poseSrc` and `onLoadedAnimation.src` are **validated** before rendering on the scene.
+Animation source props support both `.glb` and `.fbx` formats. All other props mentioned before only support `.glb`.
+
+Examples on supported resource formats:
+* URL resources
+  * relative `/headwear.glb`
+  * absolute `https://readyplayerme.github.io/visage/male.glb?queryParams=allowed`
+* Base64 strings
+  * `data:application/octet-stream;base64`
+  * `data:model/gltf-binary;base64`
+* Binary input such as `model/gltf-binary`
+  
 ### :mount_fuji: Features
 
 - [x] GLSL imports
