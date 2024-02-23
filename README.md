@@ -61,6 +61,32 @@ function App() {
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
+# Installation
+
+Recharts is available as an [npm package]
+```sh
+ npm install recharts
+```
+
+# Documentation & examples
+
+You can find all **code examples** of the components and their **documentation** on [our GitHub page](https://recharts.org/en-US/guide/installation).
+
+Here is the first one to get you started:
+```typescript jsx
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, ...];
+
+const renderLineChart = (
+  <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+    <XAxis dataKey="name" />
+    <YAxis />
+    <Tooltip />
+  </LineChart>
+);
+```
 
 ### Validation
 Props such as `modelSrc`, `animationSrc`, `poseSrc` and `onLoadedAnimation.src` are **validated** before rendering on the scene.
