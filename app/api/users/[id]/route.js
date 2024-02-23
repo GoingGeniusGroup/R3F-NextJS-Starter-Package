@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
+
 const prisma = new PrismaClient()
+
+//Function to update user
 export async function PUT(request, { params }) {
   try {
     const data = await request.json()
     console.log(data)
-    const { name, email } = data
+    const { first_name, last_name, email, phone_number } = data
     const id = parseInt(params.id)
-    const updatedUser = await prisma.user.update({
-      where: { id },
-      data: {
-        name,
-        email,
-      },
+    const updatedUser = await prisma.users.update({
+      where: { gg_id: id },
+      data: { first_name, last_name, email, phone_number },
     })
     return NextResponse.json(updatedUser)
   } catch (error) {
@@ -21,11 +21,12 @@ export async function PUT(request, { params }) {
   }
 }
 
+//Function to delete user
 export async function DELETE(request, { params }) {
   try {
     const id = parseInt(params.id)
-    const deletedUser = await prisma.user.delete({
-      where: { id },
+    const deletedUser = await prisma.users.delete({
+      where: { gg_id: id },
     })
     return NextResponse.json(deletedUser)
   } catch (error) {
