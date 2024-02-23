@@ -16,7 +16,7 @@ return (
         <div className="signup flex flex-col items-center justify-center rounded-t-3xl bg-slate-50 sm:h-1/4 lg:h-4/5 p-10">
             <div className="card flex flex-col items-center justify-center gap-2 lg:w-2/4 h-auto rounded-2xl">
                 <div className="card-title m-0 rounded-t-2xl p-2 mb-5">
-                    <h2 className='pt-2 text-xl text-center'>Signup</h2>
+                    <h2 className='p-2 text-xl text-center'>Signup</h2>
                 </div>
                 <form action="#" className='flex flex-col items-center justify-center gap-2 p-3'>
                     <label htmlFor="" className='labels'>Email</label>

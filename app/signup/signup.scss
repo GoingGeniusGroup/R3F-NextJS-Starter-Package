@@ -41,3 +41,9 @@
     font-size: xx-large;
     transition: font-size .2s ease;
 }
+
+.signup-btn button:hover, button:focus{
+    background-color: whitesmoke;
+    border: 2px solid black;
+    
+}
