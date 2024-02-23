@@ -2,12 +2,12 @@
 
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
-import { Avatar } from 'src/components/Avatar';
+import { Avatar } from '../src/components/Avatar';
 
-const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
-const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
-const Avatar_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
-const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
+const Logo = dynamic(() => import('../src/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
+const Avatar_2 = dynamic(() => import('../src/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
+const Avatar_1 = dynamic(() => import('../src/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
+const View = dynamic(() => import('../src/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
     <div className='flex h-96 w-full flex-col items-center justify-center'>

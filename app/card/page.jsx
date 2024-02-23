@@ -4,8 +4,8 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { CardBody, CardContainer, CardItem } from '../../src/components/card/card'
 
-const Logo_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo_1), { ssr: false })
-const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
+const Logo_1 = dynamic(() => import('../../src/components/canvas/Examples').then((mod) => mod.Logo_1), { ssr: false })
+const View = dynamic(() => import('../../src/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
     <div className='flex h-96 w-full flex-col items-center justify-center'>
