@@ -1,8 +1,8 @@
 'use client'
 
-import { CardBody, CardContainer, CardItem } from '@/components/card/card'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { CardBody, CardContainer, CardItem } from '../../src/components/card/card'
 
 const Logo_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo_1), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
