@@ -1,13 +1,13 @@
 'use client'
 
-import { Avatar } from '@@/src/components/Avatar';
+import { Avatar } from '@@/components/Avatar';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
-const Logo = dynamic(() => import('@@/src/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
-const Avatar_2 = dynamic(() => import('@@/src/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
-const Avatar_1 = dynamic(() => import('@@/src/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
-const View = dynamic(() => import('@@/src/components/canvas/View').then((mod) => mod.View), {
+const Logo = dynamic(() => import('@@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
+const Avatar_2 = dynamic(() => import('@@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
+const Avatar_1 = dynamic(() => import('@@/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
+const View = dynamic(() => import('@@ponents/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
     <div className='flex h-96 w-full flex-col items-center justify-center'>
@@ -22,7 +22,7 @@ const View = dynamic(() => import('@@/src/components/canvas/View').then((mod) =>
     </div>
   ),
 })
-const Common = dynamic(() => import('@@/src/components/canvas/View').then((mod) => mod.Common), { ssr: false })
+const Common = dynamic(() => import('@@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
   return (
