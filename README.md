@@ -1,8 +1,8 @@
 [![Downloads](https://img.shields.io/npm/dt/create-r3f-app.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/create-r3f-app) [![Discord Shield](https://img.shields.io/discord/740090768164651008?style=flat&colorA=000000&colorB=000000&label=discord&logo=discord&logoColor=ffffff)](https://discord.gg/ZZjjNvJ)
 
-# :japanese_castle: React-Three-Next starter
+# :japanese_castle: Going Genius React-Three-Next starter with Visage, Recharts & Ready-Player-Me.
 
-A minimalist starter for NextJS, @react-three/fiber and Threejs.
+A minimalist starter for NextJS, @react-three/fiber, Recharts and Threejs.
 
 ![](https://user-images.githubusercontent.com/2223602/192515435-a3d2c1bb-b79a-428e-92e5-f44c97a54bf7.jpg)
 
