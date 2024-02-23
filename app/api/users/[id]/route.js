@@ -10,6 +10,17 @@ export async function PUT(request, { params }) {
     console.log(data)
     const { first_name, last_name, email, phone_number } = data
     const id = parseInt(params.id)
+
+    // Check if the user exists
+    const existingUser = await prisma.users.findUnique({
+      where: { gg_id: id },
+    })
+
+    if (!existingUser) {
+      return NextResponse.error('User not found', 404)
+    }
+
+    // If the user exists, update their information
     const updatedUser = await prisma.users.update({
       where: { gg_id: id },
       data: { first_name, last_name, email, phone_number },
