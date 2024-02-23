@@ -1,6 +1,6 @@
 'use client'
 
-import { Avatar } from 'src/components/Avatar';
+import { Avatar } from '@@/src/components/Avatar';
 import styles from '../../App.module.scss';
 
 export default function Female_catwalk() {

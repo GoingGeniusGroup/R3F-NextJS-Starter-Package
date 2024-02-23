@@ -3,7 +3,7 @@ import { Text3D } from '@react-three/drei';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
-const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
+const View = dynamic(() => import('@@/src/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
     <div className='flex h-96 w-full flex-col items-center justify-center'>
@@ -18,7 +18,7 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
     </div>
   ),
 })
-const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
+const Common = dynamic(() => import('@@/src/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Text() {
   return (
