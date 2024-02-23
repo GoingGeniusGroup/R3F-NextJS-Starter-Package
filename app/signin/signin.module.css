@@ -2,6 +2,14 @@
     width: auto;
     height: auto;
 }
+.signinform{
+    background: linear-gradient( 135deg, rgba(246, 6, 6, 0.1), rgba(233, 7, 7, 0.654));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
 /* Mobile */
 @media (max-width:700px){
     .container{
