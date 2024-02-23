@@ -1,0 +1,35 @@
+* {
+  scroll-behavior: smooth;
+}
+
+.container {
+  background: linear-gradient(rgb(0, 0, 0), rgb(255, 255, 255));
+}
+
+.card-title {
+  background-color: rgba(107, 105, 105, 0.2);
+  width: 100%;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.signup {
+  height: 70vh;
+}
+.signup .card {
+  border: 1px solid grey;
+  box-shadow: 5px 10px 10px 5px rgba(82, 81, 81, 0.1);
+  background-color: rgba(248, 248, 255, 0.7);
+}
+.signup .input-group {
+  position: relative;
+  background-color: white;
+}
+.signup .input-group input {
+  width: 300px;
+}
+.signup .span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50);
+}/*# sourceMappingURL=signup.css.map */
