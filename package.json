@@ -18,11 +18,13 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.0.0",
+    "@nextui-org/react": "^2.2.9",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.16.0",
     "@readyplayerme/visage": "^5.0.1",
     "clsx": "^2.1.0",
+    "framer-motion": "^11.0.6",
     "glsl-random": "^0.0.5",
     "next": "^14.0.4",
     "react": "^18.2.0",

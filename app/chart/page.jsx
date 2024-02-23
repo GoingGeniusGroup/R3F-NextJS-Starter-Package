@@ -85,7 +85,7 @@ const data_2 = [
   },
 ];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-export default function Page() {
+export default function Chart() {
   return (
     <div className='flex flex-col'>
     <div className='h-96 w-full'>

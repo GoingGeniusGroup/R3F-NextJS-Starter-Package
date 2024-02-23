@@ -2,7 +2,7 @@
 import { Avatar } from 'src/components/Avatar';
 import styles from '../../App.module.scss';
 
-export default function Page() {
+export default function Taunt() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>

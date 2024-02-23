@@ -1,6 +1,7 @@
+const {nextui} = require("@nextui-org/react");
 module.exports = {
   mode: 'jit',
-  content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'], // remove unused styles in production
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}',"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"], // remove unused styles in production
   darkMode: 'media', // or 'media' or 'class'
    theme: {
     extend: {
@@ -9,8 +10,9 @@ module.exports = {
       }
     }
   },
+  darkMode: "class",
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [nextui()]
 }
