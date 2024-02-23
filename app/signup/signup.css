@@ -15,20 +15,28 @@
 
 .signup .card {
   border: 1px solid grey;
-  box-shadow: 5px 10px 10px 5px rgba(82, 81, 81, 0.1);
-  background-color: rgba(248, 248, 255, 0.7);
+  background-color: rgba(248, 248, 255, 0.4);
+  box-shadow: 25px 20px 75px rgba(0, 0, 0, 0.8), 10px 10px 10px rgba(0, 0, 0, 0.8), inset 10px 10px 10px rgba(0, 0, 0, 0.8), inset -10px -10px -10px rgba(0, 0, 0, 0.8);
 }
 .signup .input-group {
   position: relative;
   background-color: white;
+  border-bottom: 1px solid grey;
 }
 .signup .input-group input {
   width: 300px;
 }
-.signup .span {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50);
+.signup .input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: larger;
+  padding: 0.4em;
+  background-color: whitesmoke;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-end-end-radius: 20px;
 }
 
 .logos:hover {
@@ -36,7 +44,11 @@
   transition: font-size 0.2s ease;
 }
 
+.signup input:focus {
+  outline: none;
+}
+
 .signup-btn button:hover, button:focus {
   background-color: whitesmoke;
-  border: 2px solid black;
+  border: 1px solid black;
 }/*# sourceMappingURL=signup.css.map */

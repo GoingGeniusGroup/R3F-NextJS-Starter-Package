@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
 import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
+import { UserLogoIcon } from '@/logo/UserLogo'
+import { PasswordLogoIcon } from '@/logo/PasswordLogo'
     
 export default function Page() {
 return (
@@ -20,18 +22,18 @@ return (
                 </div>
                 <form action="#" className='flex flex-col items-center justify-center gap-2 p-3'>
                     <label htmlFor="" className='labels'>Email</label>
-                    <div className="input-group m-2 rounded-md">
-                        <span>@</span>
+                    <div className="input-group m-2 rounded-md flex ">
+                        <div className='input-icon'><UserLogoIcon/></div>
                         <input type="email" name="email" className='p-2 rounded-md'/>
                     </div>
 
                     <label htmlFor="" className='labels'>Password</label>
-                    <div className="input-group m-2 rounded-md">
-                        <span>*</span>
+                    <div className="input-group m-2 rounded-md flex">
+                        <div className='input-icon'><PasswordLogoIcon/></div>
                         <input type="password" name="password" className='p-2 rounded-md'/>
                     </div>
                     <div className="signup-btn w-full p-5 flex items-center justify-center">
-                        <button className='w-full p-3 px-4 bg-gray-400 rounded-2xl'>Signup</button>
+                        <button className='w-full p-3 px-4 bg-gray-200 rounded-2xl'>Signup</button>
                     </div>
                 </form>
 
