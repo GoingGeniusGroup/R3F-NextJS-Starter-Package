@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
+import { LogosApple } from '@/logo/LogosApple'
+import { LogosFacebook } from '@/logo/LogosFacebook'
     
 export default function Page() {
 return (
@@ -31,6 +34,25 @@ return (
                         <button className='w-full p-3 px-4 bg-gray-400 rounded-2xl'>Signup</button>
                     </div>
                 </form>
+
+                <div className='flex items-center'>
+                    <hr className='border-solid'/>
+                    <p className='font-semibold'>or</p>
+                    <hr/>
+                </div>
+                <div className='flex justify-center gap-16 p-5'>
+                    <a href=''>
+                        <LogosGoogleIcon className="logos text-2xl"/>
+                    </a>
+                    <a href=''>
+                        <LogosApple className="logos text-2xl"/>
+                    </a>
+                    <a href=''>
+                        <LogosFacebook className="logos text-2xl"/>
+                    </a>
+                </div>
+
+
             </div>
         </div>
     </main>

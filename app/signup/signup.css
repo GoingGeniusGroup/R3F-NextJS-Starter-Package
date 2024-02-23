@@ -32,4 +32,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50);
+}
+
+.logos:hover {
+  font-size: xx-large;
+  transition: font-size 0.2s ease;
 }/*# sourceMappingURL=signup.css.map */

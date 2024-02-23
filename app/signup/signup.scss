@@ -37,3 +37,8 @@
         transform: translateY(-50);
     }
 }
+
+.logos:hover{
+    font-size: xx-large;
+    transition: font-size .2s ease;
+}
