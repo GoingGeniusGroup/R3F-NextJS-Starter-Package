@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
-import { Avatar } from 'src/components/Avatar';
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
@@ -94,17 +93,19 @@ export default function Page() {
           </p>
         </div>
       <div className='relative my-12 h-96 w-full py-6 sm:w-1/2 md:mb-40'>
-          <Avatar 
+          {/* <Avatar 
             modelSrc="https://models.readyplayer.me/65d5fe627fe6ce384b5195e6.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
             shadows
             animationSrc="/male-spawn-animation.fbx"
+
             style={{ background: 'rgb(9,20,26)' }}
             fov={45}
             effects={{
               ambientOcclusion: true
             }}
             >
-          </Avatar>
+          </Avatar> */}
+          
       </div>
       </div>
     </>
