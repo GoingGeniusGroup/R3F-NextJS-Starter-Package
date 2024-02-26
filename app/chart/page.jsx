@@ -155,6 +155,15 @@ export default function Page() {
         </RadarChart>
       </ResponsiveContainer>
       </div>
+
+      <div className='input-card'> 
+        <input type='text' className='skills' placeholder='Skills'/>
+        <input type='text' className='percent' placeholder='%'/>
+        <input type='text' className='percent' placeholder='ggID'/>
+        <input type='color' className='input-color'/>
+        <button className='next'> Next </button>
       </div>
+      </div>
+      
   )
 }
