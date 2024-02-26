@@ -3,6 +3,7 @@ import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
 import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
 import styles from './signin.module.css'
+// import Card from 'src/components/card'
 const SignIn = () => {
   return (
     <div className='flex w-full min-h-screen '>
@@ -14,8 +15,10 @@ const SignIn = () => {
             <p className='pt-2 text-white text-sm'>Join for Free.</p>
             <p className='text-yellow-300 text-sm'>One Genius Account for all Genius Platform</p>
           </div>
+          <div></div>
+
           <div className={styles.container}>
-            <div className='bg-white rounded-3xl shadow-lg p-5 text-gray-600 '>
+            <div className='signinform bg-white rounded-3xl shadow-lg p-5 text-gray-600 '>
               <h1 className='font-bold text-black justify-center text-center text-3xl'> Sign In</h1>
               <form action='' className='flex flex-col space-y-4 p-3'>
                 <div>

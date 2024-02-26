@@ -1,8 +1,8 @@
 [![Downloads](https://img.shields.io/npm/dt/create-r3f-app.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/create-r3f-app) [![Discord Shield](https://img.shields.io/discord/740090768164651008?style=flat&colorA=000000&colorB=000000&label=discord&logo=discord&logoColor=ffffff)](https://discord.gg/ZZjjNvJ)
 
-# :japanese_castle: React-Three-Next starter
+# :japanese_castle: Going Genius React-Three-Next starter with Visage, Recharts & Ready-Player-Me.
 
-A minimalist starter for NextJS, @react-three/fiber and Threejs.
+A minimalist starter for NextJS, @react-three/fiber, Recharts and Threejs.
 
 ![](https://user-images.githubusercontent.com/2223602/192515435-a3d2c1bb-b79a-428e-92e5-f44c97a54bf7.jpg)
 
@@ -14,7 +14,7 @@ This starter allows you to navigate seamlessly between pages with dynamic dom an
 
 ### ⚫ Demo :
 
-[![image](https://user-images.githubusercontent.com/15867665/231395343-fd4770e3-0e39-4f5c-ac30-71d823a9ef1c.png)](https://react-three-next.vercel.app/)
+[![image](https://user-images.githubusercontent.com/15867665/231395343-fd4770e3-0e39-4f5c-ac30-71d823a9ef1c.png)]()
 
 ### How to use
 
@@ -60,6 +60,32 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+# Installation
+
+Recharts is available as an [npm package]
+```sh
+ npm install recharts
+```
+
+# Documentation & examples
+
+You can find all **code examples** of the components and their **documentation** on [our GitHub page](https://recharts.org/en-US/guide/installation).
+
+Here is the first one to get you started:
+```typescript jsx
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, ...];
+
+const renderLineChart = (
+  <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+    <XAxis dataKey="name" />
+    <YAxis />
+    <Tooltip />
+  </LineChart>
+);
 ```
 
 ### Validation
