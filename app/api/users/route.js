@@ -62,7 +62,7 @@ export async function POST(request) {
   }
 }
 
-//Function to update user
+//Function to read user data
 export async function GET() {
   try {
     const users = await prisma.users.findMany()
