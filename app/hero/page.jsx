@@ -5,6 +5,7 @@ import { CardBody, CardContainer, CardItem } from '@/components/card/card';
 
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { Suspense } from 'react';
 import { Avatar } from 'src/components/Avatar';
 
 
@@ -24,6 +25,8 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
   ),
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
+const Type = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Type), { ssr: false })
+
 
 
 export default function Hero() {
@@ -139,6 +142,14 @@ export default function Hero() {
     //   </div>
     // </div>
     <div className='h-screen w-full'>
+        <div className='flex items-center'>
+            <View className='flex h-20 w-full flex-col items-center justify-center'>
+            <Suspense fallback={null}>
+              <Type scale={2} position={[0, 0, 0]} />
+              <Common color={'white'}/>
+            </Suspense>
+          </View>
+        </div>
         <Avatar 
         modelSrc="https://models.readyplayer.me/658be9e8fc8bec93d06806f3.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
         shadows

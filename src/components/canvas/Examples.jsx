@@ -72,6 +72,14 @@ export function Logo_1(props) {
 
   return <primitive object={scene} {...props} />
 }
+export function Type(props) {
+  const { scene } = useGLTF('/types/6.glb')
+
+  useFrame((state, delta) => (scene.rotation.y += delta))
+
+
+  return <primitive object={scene} {...props} />
+}
 
 
 
