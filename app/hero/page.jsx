@@ -200,7 +200,7 @@ export default function Hero() {
                 className="mt-4 w-full"
                 >
                 <Image
-                  src="/aa.png"
+                  src="https://models.readyplayer.me/658be9e8fc8bec93d06806f3.png?size=1024?quality=100"
                   height="500"
                   width="500"
                   className="rounded-xl object-cover group-hover/card:shadow-xl"
