@@ -4,7 +4,6 @@ import { Text3D } from '@react-three/drei';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { Avatar } from 'src/components/Avatar';
-
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
 const Avatar_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
@@ -25,8 +24,10 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
-export default function Page() {
+export default function Page({
+}) {
   return (
+    
     <>
       <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
         {/* jumbo */}
