@@ -51,7 +51,7 @@ const HeroContent = () => {
       </div> */}
       <div className="mr-[-180px] flex size-full flex-col items-end">
         <Image
-          src="https://models.readyplayer.me/658be9e8fc8bec93d06806f3.png?camera=fullbody?quality=100?"
+          src="https://models.readyplayer.me/658be9e8fc8bec93d06806f3.png?camera=fullbody&quality=100&size=1024&blendShapes[mouthSmile]=0.3"
           alt="work icons"
           height={650}
           width={650}
