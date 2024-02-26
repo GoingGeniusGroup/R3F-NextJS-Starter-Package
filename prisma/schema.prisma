@@ -19,3 +19,9 @@ model users {
   otp            Int?
   created_at     DateTime? @default(now()) @db.Timestamp(0)
 }
+
+model skills {
+  id         Int     @id @default(autoincrement())
+  skill      String? @db.VarChar(100)
+  percentage Int?
+}
