@@ -1,8 +1,10 @@
 'use client'
 
+import { CardBody, CardContainer, CardItem } from '@/components/card/card';
 // import { Button } from "@/components/ui/button"
 
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { Avatar } from 'src/components/Avatar';
 
 
@@ -178,7 +180,7 @@ export default function Hero() {
                 </nav>
             </div> 
         </div> 
-        <div className='left-[30%] top-[36%] size-full md:absolute '>
+        {/* <div className='left-[30%] top-[36%] size-full md:absolute '>
             <div className='flex flex-col items-center justify-center'>
                 <h2 className="mb-12 text-center text-3xl font-extrabold text-gray-900">Web Specialist based in Nepal</h2>
                 <p className="mb-6 w-[35%] text-center text-gray-500">
@@ -188,6 +190,58 @@ export default function Hero() {
                 Genius User For Genius Experience. Passkeys and Secured Login.
                 </p>
             </div>   
+        </div> */}
+        <div className='left-[30%] top-[10%] size-full md:absolute '>
+        <div className='flex flex-col items-center justify-center'>
+        <CardContainer className="hover:shadow-3xl dark:border-none dark:hover:border-none dark:hover:shadow-3xl">
+          <CardBody className="group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]">
+            <div className="flex">
+              <CardItem
+                className="mt-4 w-full"
+                >
+                <Image
+                  src="/aa.png"
+                  height="500"
+                  width="500"
+                  className="rounded-xl object-cover group-hover/card:shadow-xl"
+                  alt="thumbnail"
+                />
+              </CardItem>
+              <div className="flex flex-col">
+                <CardItem
+                  translateZ="50"
+                  className="text-2xl font-bold text-neutral-600 dark:text-white"
+                  >
+                  Ayush Lama
+                </CardItem>
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="mt-2 max-w-sm text-lg text-[#39ff14] dark:text-[#39ff14]"
+                >
+                Jr.CEO
+                </CardItem>
+                <div className="mt-20 flex items-center justify-between">
+                  <CardItem
+                    translateZ={20}
+                    as="button"
+                    className="right-0 rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
+                  >
+                  Follow
+                  </CardItem>
+                  <CardItem
+                    translateZ={20}
+                    as="button"
+                    className="ml-2 rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
+                  >
+                  Edit
+                  </CardItem>
+                </div>
+              </div>
+            </div>
+          </CardBody>
+        </CardContainer>
+        </div>
         </div>
     </div>
   )
