@@ -17,3 +17,30 @@
     overflow: hidden;
   }
 }
+
+.input-card{
+  background-color: bisque;
+  text-align: center;
+  padding: 20px;
+}
+
+.percent{
+  width: 30px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.skills  {
+  text-align: center;
+  margin-left: 5px;
+}
+
+ .input-color{
+  margin-left: 5px;
+ }
+
+ .next{
+  background-color: beige;
+  margin-left: 5px;
+  padding: 5px;
+ }
