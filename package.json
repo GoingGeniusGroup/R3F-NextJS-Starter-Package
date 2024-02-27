@@ -10,7 +10,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "lint": "next lint --fix --dir app",
+    "lint": "next lint --fix",
     "dev": "next dev",
     "build": "next build",
     "analyze": "ANALYZE=true next build",
