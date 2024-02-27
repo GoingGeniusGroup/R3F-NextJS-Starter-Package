@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       boxShadow: {
         '3xl': '20px 20px 80px 0px rgba(0, 0, 0, 0.16 )',
+        '4xl': '30px 30px 40px 0px #1F51FF',
       }
     }
   },
