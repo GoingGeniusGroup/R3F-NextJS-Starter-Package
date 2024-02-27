@@ -9,7 +9,7 @@ export async function GET(request, { params }) {
 
     // Fetch the skill by ID
     const skill = await prisma.skills.findUnique({
-      where: { id },
+      where: { skill_id: id },
     })
 
     if (!skill) {
@@ -30,7 +30,7 @@ export async function PUT(request, { params }) {
 
     // Update the skill
     const updatedSkill = await prisma.skills.update({
-      where: { id },
+      where: { skill_id: id },
       data: { skill, percentage, gg_id },
     })
 
@@ -48,7 +48,7 @@ export async function DELETE(request, { params }) {
 
     // Delete the skill
     const deletedSkill = await prisma.skills.delete({
-      where: { id },
+      where: { skill_id: id },
     })
 
     return NextResponse.json(deletedSkill)
