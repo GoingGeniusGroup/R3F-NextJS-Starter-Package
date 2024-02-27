@@ -2,7 +2,6 @@
 
 import { CardBody, CardContainer, CardItem } from '@/components/card/card';
 // import { Button } from "@/components/ui/button"
-
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Suspense, useState } from 'react';
@@ -25,9 +24,6 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 const Type = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Type), { ssr: false })
-
-
-
 export default function Hero() {
   const [name, setName] = useState('');
   const [jobTitle, setJobTitle] = useState('');
@@ -165,6 +161,7 @@ export default function Hero() {
             ambientOcclusion: true
         }}    
         />
+        
         {/* <EnvironmentModel environment="spaceStation" scale={1} /> */}
         <div className='right-[30%] top-[32%] size-full md:absolute'>
             <div className='ml-[12%] flex flex-col items-center justify-center'> 
