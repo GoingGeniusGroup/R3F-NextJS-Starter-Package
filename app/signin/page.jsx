@@ -49,7 +49,7 @@ const SignIn = () => {
           </div>
 
           <div className={styles.container}>
-            <div className='signinform bg-white rounded-3xl shadow-lg p-5 text-gray-600 '>
+            <div className='bg-white rounded-3xl shadow-lg p-5 text-gray-600 '>
               <h1 className='font-bold text-black justify-center text-center text-3xl'> Sign In</h1>
               <form action='' className='flex flex-col space-y-4 p-3'>
                 <div>
@@ -66,7 +66,7 @@ const SignIn = () => {
                     className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-yellow-300'
                   />
                 </div>
-                <div className='text-align'>
+                <div className=''>
                   <p className='text-blue-500 text-sm flex justify-between'>
                     <a href='' className='text-start' style={{ marginRight: '2.75rem' }}>
                       Mobile Sign In

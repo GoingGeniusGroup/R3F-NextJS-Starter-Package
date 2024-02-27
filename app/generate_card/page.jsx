@@ -88,9 +88,16 @@ const SignIn = () => {
           </div>
 
           <div className={styles.container}>
-            <div className='signinform bg-white rounded-3xl shadow-lg p-8 text-gray-600 '>
+            <div className='bg-white rounded-3xl shadow-lg p-8 text-gray-600 '>
               <h1 className='font-bold text-black justify-center text-center text-3xl'> Generate Your Genius Card</h1>
               <form action='' className='flex flex-col space-y-4 p-5'>
+                <div>
+                  <input
+                    type=''
+                    placeholder='Avatar ID'
+                    className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-yellow-300'
+                  />
+                </div>
                 <div>
                   <input
                     type='Name'
