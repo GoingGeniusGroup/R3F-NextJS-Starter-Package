@@ -1,5 +1,6 @@
-import { Layout } from '@/components/dom/Layout'
-import '@/global.css'
+import { Layout } from '@/components/dom/Layout';
+import StarsCanvas from "@/components/Hero/main/StarBackground";
+import '@/global.css';
 
 export const metadata = {
   title: 'Going Genius Next.js+ReactThreeFiber+Visage Starter Bundle',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <head />
       <body>
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
+        <StarsCanvas />
         <Layout>{children}</Layout>
       </body>
     </html>

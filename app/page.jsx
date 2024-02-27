@@ -1,6 +1,5 @@
 'use client'
 
-import { Text3D } from '@react-three/drei'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Avatar } from 'src/components/Avatar'
@@ -117,30 +116,6 @@ export default function Page() {
               ambientOcclusion: true,
             }}
           ></Avatar>
-        </div>
-      </div>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-        {/* fifth row */}
-        <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
-          <View orbit className='relative h-full sm:h-48 sm:w-full'>
-            <Suspense fallback={null}>
-              <Text3D font='./fonts/Anta_Regular.json' position={[-3, -0.5, 0]} rotation={[0, 0.4, 0]}>
-                Hello Genius!
-              </Text3D>
-              <Common color={'black'} />
-            </Suspense>
-          </View>
-        </div>
-        <div className='w-full p-6 sm:w-1/2'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Rendering 3D Text.</h2>
-          <p className='mb-8 text-gray-600'>
-            Visit this{' '}
-            <a className='mb-8 text-blue-600' href='https://gero3.github.io/facetype.js/'>
-              link
-            </a>{' '}
-            to generate .json file for your font. Make sure the fonts are liscenced before use. You need to import
-            @react-three/drei to use Text3D element to make the font 3D inside your scene.
-          </p>
         </div>
       </div>
     </>

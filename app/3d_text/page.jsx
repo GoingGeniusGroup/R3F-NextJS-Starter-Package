@@ -25,6 +25,7 @@ export default function Page() {
     <>
       <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
         {/* 3D Text */}
+        
         <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
           <View orbit className='relative h-full sm:h-48 sm:w-full'>
             <Suspense fallback={null}>
@@ -41,6 +42,7 @@ export default function Page() {
            Visit this <a className='mb-8 text-blue-600' href='https://gero3.github.io/facetype.js/'>link</a> to generate .json file for your font. Make sure the fonts are liscenced before use. You need to import @react-three/drei to use Text3D element to make the font 3D inside your scene.
           </p>
         </div>
+        
       </div>
     </>
   )
