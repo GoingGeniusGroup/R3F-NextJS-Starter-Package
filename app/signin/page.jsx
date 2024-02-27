@@ -3,11 +3,14 @@ import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
 import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
 import styles from './signin.module.css'
-// import Card from 'src/components/card'
+import { CardBody, CardContainer, CardItem } from '@/components/card/card'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
+
 const SignIn = () => {
   return (
     <div className='flex w-full min-h-screen '>
-      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black w-full p-8 text-white'>
+      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black w-full pl-28 pt-5 text-white'>
         <div className='flex flex-col space-y-8 justify-between pt-5'>
           <div>
             <h1 className='font-bold text-4xl tracking-wide'> GG Users</h1>
@@ -15,7 +18,44 @@ const SignIn = () => {
             <p className='pt-2 text-white text-sm'>Join for Free.</p>
             <p className='text-yellow-300 text-sm'>One Genius Account for all Genius Platform</p>
           </div>
-          <div></div>
+          <div>
+            <CardContainer className='hover:shadow-3xl dark:border-none dark:hover:border-none dark:hover:shadow-3xl py-0'>
+              <CardBody className='group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]'>
+                <div className='flex'>
+                  <CardItem className='mt-4 w-full'>
+                    <Image
+                      src='/aa.png'
+                      height='1000'
+                      width='1000'
+                      className='size-full rounded-xl object-cover group-hover/card:shadow-xl'
+                      alt='thumbnail'
+                    />
+                  </CardItem>
+                  <div className='flex flex-col'>
+                    <CardItem translateZ='50' className='text-2xl font-bold text-neutral-600 dark:text-white'>
+                      Genius Card
+                    </CardItem>
+                    <CardItem
+                      as='p'
+                      translateZ='60'
+                      className='mt-2 max-w-sm text-lg text-[#39ff14] dark:text-[#39ff14]'
+                    >
+                      Coming Soon!
+                    </CardItem>
+                    <div className='mt-20 flex items-center justify-between'>
+                      <CardItem
+                        translateZ={20}
+                        as='button'
+                        className='right-0 rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black'
+                      >
+                        Sign up
+                      </CardItem>
+                    </div>
+                  </div>
+                </div>
+              </CardBody>
+            </CardContainer>
+          </div>
 
           <div className={styles.container}>
             <div className='signinform bg-white rounded-3xl shadow-lg p-5 text-gray-600 '>
@@ -46,25 +86,33 @@ const SignIn = () => {
                   </p>
                 </div>
 
-                <button className='inline-block bg-black text-white font-bold rounded-lg px-6 py-2'>Sign In</button>
-              </form>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <hr style={{ flex: '1', border: 'none', borderBottom: '0.5px solid black' }} />
-                <p style={{ margin: '0 5px' }}>or</p>
-                <hr style={{ flex: '1', border: 'none', borderBottom: '0.5px solid black' }} />
-              </div>
+                <button className='inline-block bg-black text-white font-bold rounded-lg px-6 py-2 hover:scale-110 transition duration-500 cursor-pointer'>
+                  Sign In
+                </button>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <hr style={{ flex: '1', border: 'none', borderBottom: '0.5px solid black' }} />
+                  <p style={{ margin: '0 5px' }}>or</p>
+                  <hr style={{ flex: '1', border: 'none', borderBottom: '0.5px solid black' }} />
+                </div>
 
-              <div className='justify-center p-5 flex space-x-11'>
-                <a href=''>
-                  <LogosGoogleIcon style={{ fontSize: '24px' }} />
-                </a>
-                <a href=''>
-                  <LogosApple style={{ fontSize: '24px' }} />
-                </a>
-                <a href=''>
-                  <LogosFacebook style={{ fontSize: '24px' }} />
-                </a>
-              </div>
+                <div className='flex space-x-11 justify-center'>
+                  <div className='justify-center p-5 flex hover:scale-125 transition duration-500 cursor-pointer'>
+                    <a href=''>
+                      <LogosGoogleIcon style={{ fontSize: '24px' }} />
+                    </a>
+                  </div>
+                  <div className='justify-center p-5 flex hover:scale-125 transition duration-500 cursor-pointer'>
+                    <a href=''>
+                      <LogosApple style={{ fontSize: '24px' }} />
+                    </a>
+                  </div>
+                  <div className='justify-center p-5 flex hover:scale-125 transition duration-500 cursor-pointer'>
+                    <a href=''>
+                      <LogosFacebook style={{ fontSize: '24px' }} />
+                    </a>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
