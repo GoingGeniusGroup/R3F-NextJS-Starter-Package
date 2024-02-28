@@ -1,5 +1,9 @@
 'use client'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+
+
 
 const data = [
   {
@@ -84,8 +88,51 @@ const data_2 = [
     fullMark: 150,
   },
 ];
+
+
+
+
+
+
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 export default function Page() {
+  const [details, setDetails] = useState({
+    skills:"",
+    percent:0,
+    gid:0
+  })
+    const handlechange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setDetails((prev) => {
+      return { ...prev, [name]: value }
+    });
+  }
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  try {
+    // Make API call to save order in the database
+    const response = await axios.post('http://localhost:3000/api/skills', details);
+
+    // Handle the response as needed
+    console.log('API response:', response.data);
+
+    // Reset the details state or perform any other actions after successful API call
+    setDetails({
+      skills: "",
+      percent: 0,
+      gid: 0
+    });
+
+  } catch (error) {
+    // Handle error, log it, or show an error message to the user
+    console.error('API error:', error);
+  }
+};
+    
   return (
     <div className='flex flex-col'>
     <div className='h-96 w-full'>
@@ -157,12 +204,17 @@ export default function Page() {
       </div>
 
       <div className='input-card'> 
-        <input type='text' className='skills' placeholder='Skills'/>
-        <input type='text' className='percent' placeholder='%'/>
-        <input type='text' className='percent' placeholder='ggID'/>
-        <input type='color' className='input-color'/>
-        <button className='next'> Next </button>
+
+      <h1> Genius Skills </h1>     
+      <form onSubmit={handleSubmit} >
+        <input type='text' className='skills' placeholder='Skills' name='skills' onChange={handlechange}/>
+        <input type='number' className='percent' placeholder='%' name='percent' onChange={handlechange}/>
+        <input type='number' className='percent' placeholder='gID' name='gid' onChange={handlechange}/>
+        <button className='next' type='submit'> Next </button>
+        </form>
       </div>
+
+      
       </div>
       
   )

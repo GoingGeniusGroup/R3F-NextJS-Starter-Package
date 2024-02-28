@@ -24,6 +24,7 @@
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.16.0",
     "@readyplayerme/visage": "^5.0.1",
+    "axios": "^1.6.7",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.0",
     "glsl-random": "^0.0.5",

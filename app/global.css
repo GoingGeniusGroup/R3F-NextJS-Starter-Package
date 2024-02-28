@@ -19,9 +19,9 @@
 }
 
 .input-card{
-  background-color: bisque;
   text-align: center;
   padding: 20px;
+  height: 50vh;
 }
 
 .percent{
@@ -37,6 +37,11 @@
 
  .input-color{
   margin-left: 5px;
+ }
+
+ h1{
+  font-size: 30px;
+  font-weight: bold;
  }
 
  .next{
