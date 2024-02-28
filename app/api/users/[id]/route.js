@@ -3,6 +3,27 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
+// Function to read a user by ID
+export async function GET(request, { params }) {
+  try {
+    const id = parseInt(params.id)
+
+    // Fetch the user by ID
+    const user = await prisma.users.findUnique({
+      where: { gg_id: id },
+    })
+
+    if (!user) {
+      return NextResponse.error('User not found', 404)
+    }
+
+    return NextResponse.json(user)
+  } catch (error) {
+    console.error('Error fetching user', error)
+    return NextResponse.error('Internal Server Error', 500)
+  }
+}
+
 //Function to update user
 export async function PUT(request, { params }) {
   try {

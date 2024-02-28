@@ -1,9 +1,8 @@
 'use client'
 
-import { Text3D } from '@react-three/drei';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
-import { Avatar } from 'src/components/Avatar';
+
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
 const Avatar_1 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar_1), { ssr: false })
@@ -24,10 +23,8 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
-export default function Page({
-}) {
+export default function Page() {
   return (
-    
     <>
       <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
         {/* jumbo */}
@@ -42,31 +39,12 @@ export default function Page({
         <div className='w-full text-center md:w-3/5'>
           <View className='flex h-96 w-full flex-col items-center justify-center'>
             <Suspense fallback={null}>
-              <Logo route='/blob' scale={0.6} position={[0, 0, 0]} />
+              <Logo route='/card' scale={0.6} position={[0, 0, 0]} />
               <Common color={'white'}/>
             </Suspense>
           </View>
         </div>
       </div>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-          {/* fifth row */}
-        <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
-          <View orbit className='relative h-full sm:h-48 sm:w-full'>
-            <Suspense fallback={null}>
-              <Text3D font='./fonts/Anta_Regular.json' position={[-3,-0.5,0]} rotation={[0,0.4,0]}>
-                Hello Genius Dev!
-              </Text3D>
-              <Common color={'black'} />
-            </Suspense>
-          </View>
-        </div>
-        <div className='w-full p-6 sm:w-1/2'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Rendering 3D Text.</h2>
-          <p className='mb-8 text-gray-600'>
-           Visit this <a className='mb-8 text-blue-600' href='https://gero3.github.io/facetype.js/'>link</a> to generate .json file for your font. Make sure the fonts are liscenced before use. You need to import @react-three/drei to use Text3D element to make the font 3D inside your scene.
-          </p>
-        </div>
-        </div>
       <div className='mx-auto flex w-full flex-col flex-wrap items-center p-12 md:flex-row  lg:w-4/5'>
         {/* first row */}
         <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
@@ -115,74 +93,21 @@ export default function Page({
           </p>
         </div>
       <div className='relative my-12 h-96 w-full py-6 sm:w-1/2 md:mb-40'>
-          <Avatar 
+          {/* <Avatar 
             modelSrc="https://models.readyplayer.me/65d5fe627fe6ce384b5195e6.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
             shadows
             animationSrc="/male-spawn-animation.fbx"
+
             style={{ background: 'rgb(9,20,26)' }}
             fov={45}
             effects={{
               ambientOcclusion: true
             }}
             >
-          </Avatar>
+          </Avatar> */}
+          
       </div>
       </div>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-      <div className='relative h-96 w-1/4 py-6 sm:w-1/2 md:my-12 md:mb-40'>
-      <Avatar 
-            modelSrc="https://models.readyplayer.me/65ba39f18f9cbe2fcfec8a10.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
-            shadows
-            animationSrc="/taunt.fbx"
-            style={{ background: 'rgb(9,20,26)' }}
-            fov={45}
-            effects={{
-              ambientOcclusion: true
-            }}
-            >
-          </Avatar>
-      </div>
-      <div className='relative h-96 w-1/4 py-6 sm:w-1/2 md:my-12 md:mb-40'>
-      <Avatar 
-            modelSrc="https://models.readyplayer.me/65bb234c4c8598ef839cdcc2.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
-            shadows
-            animationSrc="/female-animation-catwalk.glb"
-            style={{ background: 'rgb(9,20,26)' }}
-            fov={45}
-            effects={{
-              ambientOcclusion: true
-            }}
-            >
-          </Avatar>
-      </div>
-      <div className='relative h-96 w-1/4 py-6 sm:w-1/2 md:my-12 md:mb-40'>
-      <Avatar 
-            modelSrc="https://models.readyplayer.me/65ba322ee65b37ff56fe0178.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
-            shadows
-            animationSrc="/male-idle-2.fbx"
-            style={{ background: 'rgb(9,20,26)' }}
-            fov={45}
-            effects={{
-              ambientOcclusion: true
-            }}
-            >
-          </Avatar>
-      </div>
-      <div className='relative h-96 w-1/4 py-6 sm:w-1/2 md:my-12 md:mb-40'>
-      <Avatar 
-            modelSrc="https://models.readyplayer.me/658be9e8fc8bec93d06806f3.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
-            shadows
-            animationSrc="/male-idle-3.fbx"
-            style={{ background: 'rgb(9,20,26)' }}
-            fov={45}
-            effects={{
-              ambientOcclusion: false
-            }}
-            >
-          </Avatar>
-      </div>
-      
-      </div> 
     </>
   )
 }
