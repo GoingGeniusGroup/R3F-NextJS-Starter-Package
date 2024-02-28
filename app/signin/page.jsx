@@ -110,6 +110,7 @@ const SignIn = () => {
                 <button
                   onClick={handleSubmit}
                   className='inline-block bg-black text-white font-bold rounded-lg px-6 py-2 hover:scale-110 transition duration-500 cursor-pointer'
+                  route='/createavatar'
                 >
                   Sign In
                 </button>
