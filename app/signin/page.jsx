@@ -1,12 +1,38 @@
-import React from 'react'
+'use client'
 import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
 import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
 import styles from './signin.module.css'
 import { CardBody, CardContainer, CardItem } from '@/components/card/card'
 import Image from 'next/image'
+import { useState } from 'react'
+import axios from 'axios'
 
+const { log } = console
 const SignIn = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const submit = {
+      email,
+      password,
+    }
+
+    log('Submit: ', submit)
+
+    try {
+      const { data } = await axios({
+        url: '/api/signin',
+        method: 'POST',
+        data: submit,
+      })
+      log('Response:', data)
+    } catch (error) {
+      log('Error: ', error)
+    }
+  }
   return (
     <div className='flex w-full min-h-screen '>
       <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black w-full pl-28 pt-5 text-white'>
@@ -56,6 +82,8 @@ const SignIn = () => {
                   <input
                     type='email'
                     placeholder='Email'
+                    value={email}
+                    onChange={({ target }) => setEmail(target?.value)}
                     className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-yellow-300'
                   />
                 </div>
@@ -63,6 +91,8 @@ const SignIn = () => {
                   <input
                     type='password'
                     placeholder='Password'
+                    value={password}
+                    onChange={({ target }) => setPassword(target?.value)}
                     className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-yellow-300'
                   />
                 </div>
@@ -77,7 +107,10 @@ const SignIn = () => {
                   </p>
                 </div>
 
-                <button className='inline-block bg-black text-white font-bold rounded-lg px-6 py-2 hover:scale-110 transition duration-500 cursor-pointer'>
+                <button
+                  onClick={handleSubmit}
+                  className='inline-block bg-black text-white font-bold rounded-lg px-6 py-2 hover:scale-110 transition duration-500 cursor-pointer'
+                >
                   Sign In
                 </button>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
