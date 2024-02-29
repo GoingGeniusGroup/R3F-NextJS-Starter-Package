@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 const prisma = new PrismaClient()
-const JWT_SECRET = 'gg9jisJYIWE6gg'
+const JWT_SECRET = 'ggHa8vZ@|P4JWt,Mt/NOWN&4/pIa(J7&&Agg'
 
 export async function POST(request) {
   try {
@@ -29,10 +29,10 @@ export async function POST(request) {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' })
+    const token = jwt.sign({ id: user.gg_id }, JWT_SECRET, { expiresIn: '1h' })
 
-    // Return token along with user data
-    return NextResponse.json({ user, token })
+    // Return token upon sign in
+    return NextResponse.json({ token })
   } catch (error) {
     console.error('Error signing in:', error)
     return NextResponse.error('Internal Server Error', 500)
