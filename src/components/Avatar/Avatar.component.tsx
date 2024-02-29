@@ -1,22 +1,22 @@
-import React, { Suspense, FC, useMemo, CSSProperties, ReactNode, useEffect } from 'react';
-import { Vector3 } from 'three';
-import { CameraControls } from 'src/components/Scene/CameraControls.component';
-import { Environment } from 'src/components/Scene/Environment.component';
-import { BaseModelProps, EnvironmentProps, SpawnState, EffectConfiguration, LightingProps } from 'src/types';
-import { BaseCanvas } from 'src/components/BaseCanvas';
-import { AnimationModel, HalfBodyModel, StaticModel, PoseModel } from 'src/components/Models';
-import { isValidFormat, triggerCallback } from 'src/services';
 import { Dpr } from '@react-three/fiber';
 import { EffectComposer, SSAO, Vignette } from '@react-three/postprocessing';
 import { Provider, useSetAtom } from 'jotai';
-import Capture, { CaptureType } from 'src/components/Capture/Capture.component';
-import { Box, Background } from 'src/components/Background/Box/Box.component';
-import { BackgroundColor } from 'src/components/Background';
-import Shadow from 'src/components/Shadow/Shadow.component';
-import Loader from 'src/components/Loader';
-import Bloom from 'src/components/Bloom/Bloom.component';
 import { BlendFunction } from 'postprocessing';
+import { CSSProperties, FC, ReactNode, Suspense, useEffect, useMemo } from 'react';
+import { BackgroundColor } from 'src/components/Background';
+import { Background, Box } from 'src/components/Background/Box/Box.component';
+import { BaseCanvas } from 'src/components/BaseCanvas';
+import Bloom from 'src/components/Bloom/Bloom.component';
+import Capture, { CaptureType } from 'src/components/Capture/Capture.component';
 import Lights from 'src/components/Lights/Lights.component';
+import Loader from 'src/components/Loader';
+import { AnimationModel, HalfBodyModel, PoseModel, StaticModel } from 'src/components/Models';
+import { CameraControls } from 'src/components/Scene/CameraControls.component';
+import { Environment } from 'src/components/Scene/Environment.component';
+import Shadow from 'src/components/Shadow/Shadow.component';
+import { isValidFormat, triggerCallback } from 'src/services';
+import { BaseModelProps, EffectConfiguration, EnvironmentProps, LightingProps, SpawnState } from 'src/types';
+import { Vector3 } from 'three';
 import { spawnState } from '../../state/spawnAtom';
 
 export const CAMERA = {
@@ -213,7 +213,7 @@ const Avatar: FC<AvatarProps> = ({
       );
     }
 
-    if (halfBody) {
+    if (!halfBody) {
       return (
         <HalfBodyModel
           emotion={emotion}
