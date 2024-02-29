@@ -4,6 +4,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import FormModal from '@/components/Modal/FormModal';
+import { motion } from "framer-motion"
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
@@ -25,35 +26,93 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
+
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [cardBackground, setCardBackground] = useState('project-card-bg.jpg')
+  const [cardAvatar, setCardAvatar] = useState('aa.png')
   return (
     <>
-      <div className="relative flex flex-col h-full w-full" id="about-me">
+      <div className="relative flex flex-col h-full w-full bg-[#030017]" id="about-me">
         <video
           autoPlay
           muted
           loop
-          className="rotate-180 absolute top-[-366px]  h-screen w-full left-0 z-[-1] object-cover "
+          className="rotate-180 absolute top-[-367px] h-screen w-full left-0 z-0 object-cover"
         >
           <source src="/bg/blackhole.webm" type="video/webm"/>
         </video>
 
-        <div className='container absolute z-10 mx-auto w-full h-full flex items-center justify-center'>
-          <button
-            className='rounded-2xl'
+        <div className='flex items-center justify-center w-full h-full p-10 z-20'>
+          <motion.button
+            whileHover = {{scale:1.1}}
+            whileTap = {{scale:0.9}}
+            className='rounded-2xl text-white border-2 p-2 hover:bg-violet-900 shadow-md shadow-violet-600 backdrop-blur-xl'
             onClick={() => {
               setIsModalOpen(true);
             }}
           >
             Open Project Modal
-          </button>
+          </motion.button>
           <FormModal
             show={isModalOpen}
             onclose={setIsModalOpen}
           >
-          
-            <h1>Projects Modal</h1>
+            <form action="#" method="" className="w-full max-w-lg mx-auto flex flex-col items-center justify-center">
+              <div className="image-preview relative bg-white h-44 w-50 object-fit overflow-hidden rounded-md mb-10">
+                <img src={`/${cardBackground}`}/>
+                <div className="avatar-img absolute right-2 top-0 h-20 w-40 z-10">
+                  <img src={`/${cardAvatar}`}/>
+                </div>
+                <div id='name-preview' className="absolute bottom-0 bw-full rounded-lg p-3 backdrop-blur-2xl">
+                  {name}
+                </div>
+                <div id='description-preview' className="absolute top-0 w-full rounded-t-sm p-3">
+                  {description}
+                </div>
+              </div>
+              <div className="form-section grid grid-rows-4 grid-cols-3 gap-10 text-white grid-">
+                <div className="upload-images flex col-start-1 col-end-4">
+                  <div className="avatar-bg text-center">
+                    <label htmlFor="avatar-bg" className='mx-auto'>Card Background</label>
+                    <input type="file" 
+                      onChange={(e) => setCardBackground(e.target.files[0].name)}
+                    />
+                  </div>
+                  <div className="avatar text-center">
+                    <label  htmlFor="avatar-img" className='mx-auto'>Avatar</label>
+                    <input type="file" id='avatar-img' 
+                      onChange={(e) => setCardAvatar(e.target.files[0].name)}
+                    />
+                  </div>
+                </div>
+                <div className='flex flex-col col-start-1 col-span-4'>
+                  <label htmlFor="project-name" className='pr-5 text-'>Name</label>
+                  <input type="text" id='project-name' className='w-80 h-8 p-2 text-black' placeholder='Project Name' 
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className='col-start-1 col-span-4'>
+                  <label htmlFor="project-descrip" className='pr-5 text-'>Description</label>
+                  <textarea id='project-descrip' className='w-full h-12 p-1 resize-none text-black' placeholder='Description'
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </div>
+
+                <div className="btn col-start-1 col-span-4 flex items-center justify-center" type="submit">
+                  <motion.button
+                    whileHover = {{scale:1.1}}
+                    whileTap = {{scale:0.9}}
+                    className='rounded-2xl text-white border-2 p-2 hover:bg-violet-900 shadow-md shadow-violet-600 backdrop-blur-xl'
+                  >
+                    Pathaideu
+                  </motion.button>
+                </div>
+              </div>
+            </form>
           </FormModal>
         </div>
       </div>
