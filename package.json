@@ -23,6 +23,7 @@
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.16.0",
+    "@readyplayerme/react-avatar-creator": "^0.5.0",
     "@readyplayerme/visage": "^5.0.1",
     "axios": "^1.6.7",
     "bcrypt": "^5.1.1",

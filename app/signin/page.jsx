@@ -7,9 +7,11 @@ import { CardBody, CardContainer, CardItem } from '@/components/card/card'
 import Image from 'next/image'
 import { useState } from 'react'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 const { log } = console
 const SignIn = () => {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -29,6 +31,9 @@ const SignIn = () => {
         data: submit,
       })
       log('Response:', data)
+      if (data.success === true) {
+        router.push('/createavatar')
+      }
     } catch (error) {
       log('Error: ', error)
     }

@@ -6,7 +6,7 @@ import { CardBody, CardContainer, CardItem } from '@/components/card/card'
 // import { Button } from "@/components/ui/button"
 
 import dynamic from 'next/dynamic'
-import { Suspense, useState } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { Avatar } from 'src/components/Avatar'
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
@@ -32,6 +32,16 @@ const SignIn = () => {
   const [jobTitle, setJobTitle] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  // const [avatarData, setAvatarData] = useState([])
+  // useEffect(() => {
+  //   const fetchAvatars = async () => {
+  //     const response = await fetch('your_api_endpoint')
+  //     const data = await response.json()
+  //     setAvatarData(data)
+  //   }
+
+  //   fetchAvatars()
+  // }, [])
   return (
     <div className='flex w-full min-h-screen '>
       <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black w-full pl-28 pt-5 text-white'>
@@ -48,6 +58,8 @@ const SignIn = () => {
                 <div className='flex'>
                   <CardItem className='mt-4 w-full'>
                     <Image
+                      // key={avatarData.url}
+                      // src={avatarData.url}
                       src='/aa.png'
                       height='1000'
                       width='1000'

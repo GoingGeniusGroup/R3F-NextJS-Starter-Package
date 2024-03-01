@@ -27,12 +27,13 @@ export async function POST(request) {
     }
     // return NextResponse.json({ message: 'Sign-in successful', user })
     // // If email and password are correct, redirect to home page//////////////////////////////////////use this later
-    // return NextResponse.redirect('/home', {
+    // return NextResponse.redirect('http://localhost:3000/createavatar', {
     //   body: JSON.stringify({ message: 'Sign-in successful' }),
     // })
-    const absoluteURL = new URL('/createavatar', 'http://localhost:3000/createavatar')
-    absoluteURL.searchParams.set('http://localhost:3000/signin', request.nextUrl.pathname)
-    return NextResponse.redirect(absoluteURL.toString())
+    return NextResponse.json({ success: true }, { status: 200 })
+    // const absoluteURL = new URL('/createavatar', 'http://localhost:3000/createavatar')
+    // absoluteURL.searchParams.set('http://localhost:3000/signin', request.nextUrl.pathname)
+    // return NextResponse.redirect(absoluteURL.toString())
   } catch (error) {
     console.error('Error signing in:', error)
     return NextResponse.error('Internal Server Error', 500)
