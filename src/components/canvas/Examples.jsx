@@ -53,15 +53,26 @@ export const Logo = ({ route = '/blob', ...props }) => {
   )
 }
 
-export function Duck(props) {
-  const { scene } = useGLTF('/avatar.glb')
+export function Avatar_1(props) {
+  const { scene } = useGLTF("https://models.readyplayer.me/65d5fe627fe6ce384b5195e6.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0")
 
   useFrame((state, delta) => (scene.rotation.y += delta))
 
   return <primitive object={scene} {...props} />
 }
-export function Dog(props) {
+
+export function Avatar(props) {
   const { scene } = useGLTF('/avatar.glb')
 
   return <primitive object={scene} {...props} />
 }
+
+export function Logo_1(props) {
+  const { scene } = useGLTF('/logo.glb')
+
+  return <primitive object={scene} {...props} />
+}
+
+
+
+

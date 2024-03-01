@@ -14,27 +14,45 @@
     "dev": "next dev",
     "build": "next build",
     "analyze": "ANALYZE=true next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.0.0",
+<<<<<<< HEAD
     "@jridgewell/sourcemap-codec": "^1.4.15",
     "@prisma/client": "^5.9.1",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
     "@rollup/plugin-terser": "^0.4.4",
+=======
+    "@prisma/client": "^5.10.2",
+    "@react-three/drei": "^9.92.7",
+    "@react-three/fiber": "^8.15.12",
+    "@react-three/postprocessing": "^2.16.0",
+    "@readyplayerme/visage": "^5.0.1",
+    "bcrypt": "^5.1.1",
+    "clsx": "^2.1.0",
+>>>>>>> piyush
     "glsl-random": "^0.0.5",
-    "next": "^14.1.0",
+    "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "tailwind": "^4.0.0",
+=======
+    "recharts": "^2.12.1",
+    "tailwind-merge": "^2.2.1",
+>>>>>>> piyush
     "three": "^0.160.0",
     "three-stdlib": "^2.28.9",
     "tunnel-rat": "^0.1.2"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.0.4",
+    "@types/bcrypt": "^5.0.2",
     "autoprefixer": "^10.4.16",
+    "encoding": "^0.1.13",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.1.0",
@@ -44,8 +62,9 @@
     "glslify-loader": "^2.0.0",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
-    "prisma": "^5.9.1",
+    "prisma": "^5.10.2",
     "raw-loader": "^4.0.2",
+    "sass": "^1.71.1",
     "tailwindcss": "^3.4.0",
     "url-loader": "^4.1.1"
   }
