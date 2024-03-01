@@ -17,7 +17,9 @@ const nextConfig = {
   //   styledComponents: true,
   // },
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
-  images: {},
+  images: {
+    domains: ['models.readyplayer.me'] 
+  },
   webpack(config, { isServer }) {
     if (!isServer) {
       // We're in the browser build, so we can safely exclude the sharp module
@@ -54,21 +56,32 @@ const nextConfig = {
 }
 
 const KEYS_TO_OMIT = ['webpackDevMiddleware', 'configOrigin', 'target', 'analyticsId', 'webpack5', 'amp', 'assetPrefix']
-
+const path = require('path');
 module.exports = (_phase, { defaultConfig }) => {
-  const plugins = [[withPWA], [withBundleAnalyzer, {}]]
+  
+  const plugins = [[withPWA], [withBundleAnalyzer, {}]];
 
   const wConfig = plugins.reduce((acc, [plugin, config]) => plugin({ ...acc, ...config }), {
     ...defaultConfig,
     ...nextConfig,
-  })
+  });
 
-  const finalConfig = {}
-  Object.keys(wConfig).forEach((key) => {
+  // Additional configuration
+  const additionalConfig = {
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'styles')],
+    },
+  };
+
+  const finalConfig = { ...wConfig, ...additionalConfig };
+
+  // Optionally, if you want to omit certain keys
+  const KEYS_TO_OMIT = []; // Add keys you want to omit here if needed
+  Object.keys(finalConfig).forEach((key) => {
     if (!KEYS_TO_OMIT.includes(key)) {
-      finalConfig[key] = wConfig[key]
+      finalConfig[key] = wConfig[key];
     }
-  })
-
-  return finalConfig
-}
+  });
+  
+  return finalConfig;
+};

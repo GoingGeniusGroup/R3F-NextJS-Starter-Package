@@ -42,73 +42,47 @@ export default function Page() {
       </div>
       <div>
         <CardContainer className="hover:shadow-3xl dark:border-none dark:hover:border-none dark:hover:shadow-3xl">
-      <CardBody className="group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]">
-        <div className="flex">
-        <CardItem
-          className="mt-4 w-full"
-        >
-          <Image
-            src="/aa.png"
-            height="1000"
-            width="1000"
-            className="size-full rounded-xl object-cover group-hover/card:shadow-xl"
-            alt="thumbnail"
-          />
-        </CardItem>
-        <div className="flex flex-col">
-        <CardItem
-          translateZ="50"
-          className="text-2xl font-bold text-neutral-600 dark:text-white"
-        >
-          Genius Card 
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ="60"
-          className="mt-2 max-w-sm text-lg text-[#39ff14] dark:text-[#39ff14]"
-        >
-         Coming Soon!
-        </CardItem>
-        
-        <div className="mt-20 flex items-center justify-between">
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="right-0 rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
-          >
-            Sign up
-          </CardItem>
-        </div>
-        </div>
-        </div>
-        </CardBody>
+          <CardBody className="group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]">
+            <div className="flex">
+              <CardItem
+                className="mt-4 w-full"
+                >
+                <Image
+                  src="/aa.png"
+                  height="1000"
+                  width="1000"
+                  className="size-full rounded-xl object-cover group-hover/card:shadow-xl"
+                  alt="thumbnail"
+                />
+              </CardItem>
+              <div className="flex flex-col">
+                <CardItem
+                  translateZ="50"
+                  className="text-2xl font-bold text-neutral-600 dark:text-white"
+                  >
+                  Genius Card 
+                </CardItem>
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="mt-2 max-w-sm text-lg text-[#39ff14] dark:text-[#39ff14]"
+                >
+                Coming Soon!
+                </CardItem>
+                <div className="mt-20 flex items-center justify-between">
+                  <CardItem
+                    translateZ={20}
+                    as="button"
+                    className="right-0 rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
+                  >
+                  Sign up
+                  </CardItem>
+                </div>
+              </div>
+            </div>
+          </CardBody>
         </CardContainer>
       </div>
-      {/* <div className='flex items-center justify-center'>
-          <ResponsiveContainer
-           width="50vw" height="50vh">
-        <BarChart
-      
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          
-          <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-          <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
-        </BarChart>
-      </ResponsiveContainer>
-        </div> */}
     </>
   )
 }
