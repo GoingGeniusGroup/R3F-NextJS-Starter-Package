@@ -1,5 +1,7 @@
 import Hero from "@/components/Hero/main/Hero";
 
+import Skills from "@/components/Hero/main/Skills";
+
 export default function Home() {
   return (
     <main className="size-full">
@@ -8,6 +10,7 @@ export default function Home() {
         {/* <Skills />
         <Encryption />
         <Projects /> */}
+        <Skills />
       </div>
     </main>
   );
