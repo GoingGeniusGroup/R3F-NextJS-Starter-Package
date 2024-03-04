@@ -15,7 +15,7 @@ export const MyComponent = () => {
   const [isOpen, setIsOpen] = useState(false)
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, user }) {
   return (
     <html lang='en' className='antialiased'>
       {/*
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         {/* <StarsCanvas /> */}
         <Layout>
-          <Navbar />
+          <Navbar user={user} />
           {children}
         </Layout>
       </body>
