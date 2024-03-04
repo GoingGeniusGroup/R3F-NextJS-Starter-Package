@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.0.0",
-
     "@prisma/client": "^5.10.2",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
@@ -32,8 +31,8 @@
     "glsl-random": "^0.0.5",
     "jsonwebtoken": "^9.0.2",
     "next": "^14.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
     "react-icons": "^5.0.1",
     "recharts": "^2.12.1",
     "tailwind-merge": "^2.2.1",

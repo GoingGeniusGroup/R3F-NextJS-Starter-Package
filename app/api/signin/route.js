@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 const prisma = new PrismaClient()
+const JWT_SECRET = 'ggHa8vZ@|P4JWt,Mt/NOWN&4/pIa(J7&&Agg'
 
 export async function POST(request) {
   try {
@@ -25,15 +27,12 @@ export async function POST(request) {
       // If password doesn't match, return error indicating incorrect password
       return NextResponse.error('Incorrect password', 401)
     }
-    // return NextResponse.json({ message: 'Sign-in successful', user })
-    // // If email and password are correct, redirect to home page//////////////////////////////////////use this later
-    // return NextResponse.redirect('http://localhost:3000/createavatar', {
-    //   body: JSON.stringify({ message: 'Sign-in successful' }),
-    // })
-    return NextResponse.json({ success: true }, { status: 200 })
-    // const absoluteURL = new URL('/createavatar', 'http://localhost:3000/createavatar')
-    // absoluteURL.searchParams.set('http://localhost:3000/signin', request.nextUrl.pathname)
-    // return NextResponse.redirect(absoluteURL.toString())
+
+    // Generate JWT token
+    const token = jwt.sign({ id: user.gg_id }, JWT_SECRET, { expiresIn: '1h' })
+
+    // Return token upon sign in
+    return NextResponse.json({ token })
   } catch (error) {
     console.error('Error signing in:', error)
     return NextResponse.error('Internal Server Error', 500)

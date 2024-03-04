@@ -20,6 +20,7 @@ const SignIn = () => {
       password,
     }
     log('Submit: ', submit)
+
     try {
       const { data } = await axios({
         url: '/api/signin',
@@ -27,7 +28,9 @@ const SignIn = () => {
         data: submit,
       })
       log('Response:', data)
-      if (data.success === true) {
+      const token = data.token
+
+      if (token) {
         router.push(`/createavatar?$)`)
       }
     } catch (error) {
