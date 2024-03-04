@@ -3,6 +3,8 @@ import { Layout } from '@/components/dom/Layout';
 import StarsCanvas from "@/components/Hero/main/StarBackground";
 import Navbar from '@/components/Navbar/Navbar';
 import '@/global.css';
+import { UserProvider } from '@/context/UserContext/UserContext';
+
 export const metadata = {
   title: 'Going Genius Next.js+ReactThreeFiber+Visage Starter Bundle',
   description: 'A minimal starter for Nextjs + React-three-fiber and Visage',
@@ -29,8 +31,10 @@ export default function RootLayout({ children }) {
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         {/* <StarsCanvas /> */}
         <Layout>
-          <Navbar />
-          {children}
+          <UserProvider>
+            <Navbar/>
+            {children}
+          </UserProvider>
         </Layout>
       </body>
     </html>

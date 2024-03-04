@@ -2,6 +2,7 @@
 import { useState} from "react";
 import Link from "next/link";
 import { motion } from "framer-motion"
+import { useUser } from '@/context/UserContext/UserContext';
 
 const variants = {
     open: { opacity: 1, x: 0 },
@@ -11,6 +12,7 @@ const variants = {
 const Navbar = () => {
     const [isToggled, setToggle] = useState(false);
 
+    const { user } = useUser();
     const navAnimate = {
         hidden : {
             scaleX:0,
@@ -31,6 +33,7 @@ const Navbar = () => {
     }
 
     return (
+
         <>
             <motion.nav
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -51,7 +54,11 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="relative flex items-center justify-center">
-                    <span className="px-2 font-medium text-lg">John Doe</span>
+                    {user ? (
+                    <span className="px-2 font-medium text-lg">{user.first_name + user.last_name}</span>
+                    ) : (
+                        <Link href="#">Sign-In</Link>
+                    )}
                     <Link href="#" className="hidden md:flex items-center justify-end group focus:outline-none z-10 hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-800 rounded-full" id="user-menu-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.5 9.568v4.864c0 2.294 0 3.44.722 4.153c.655.647 1.674.706 3.596.712c-.101-.675-.122-1.48-.128-2.428a.734.734 0 0 1 .735-.734a.735.735 0 0 1 .744.726c.006 1.064.033 1.818.14 2.39c.103.552.267.87.507 1.108c.273.27.656.445 1.38.54c.744.1 1.73.101 3.145.101h.985c1.415 0 2.401-.002 3.146-.1c.723-.096 1.106-.272 1.378-.541c.273-.27.451-.648.548-1.362c.1-.734.102-1.709.102-3.105V8.108c0-1.397-.002-2.37-.102-3.105c-.097-.714-.275-1.093-.547-1.362c-.273-.27-.656-.445-1.38-.54C17.728 3 16.742 3 15.327 3h-.985c-1.415 0-2.401.002-3.146.1c-.723.096-1.106.272-1.379.541c-.24.237-.404.556-.507 1.108c-.107.572-.134 1.326-.14 2.39a.735.735 0 0 1-.744.726a.734.734 0 0 1-.735-.734c.006-.948.027-1.753.128-2.428c-1.922.006-2.94.065-3.596.712c-.722.713-.722 1.86-.722 4.153m2.434 2.948a.723.723 0 0 1 0-1.032l1.97-1.946a.746.746 0 0 1 1.046 0a.723.723 0 0 1 0 1.032l-.71.7h7.086c.408 0 .74.327.74.73c0 .403-.332.73-.74.73H8.24l.71.7a.723.723 0 0 1 0 1.032a.746.746 0 0 1-1.046 0z" clip-rule="evenodd"/></svg>
                         <span className="hidden group-hover:flex text-sm font-semibold">Logout</span>
