@@ -9,7 +9,7 @@ const CreateAvatar = () => {
           <button className='inline-block bg-white text-black font-bold rounded-lg px-6 py-2 mr-4'>
             <a href='https://gguser.readyplayer.me/avatar?frameApi'>Create Avatar</a>
           </button>
-          <button className='inline-block bg-yellow-300 text-black font-bold rounded-lg px-6 py-2'>
+          <button className='inline-block bg-[#E5FF25] text-black font-bold rounded-lg px-6 py-2'>
             <a href='https://gguser.readyplayer.me/avatar?frameApi'>Edit Avatar</a>
           </button>
         </div>
