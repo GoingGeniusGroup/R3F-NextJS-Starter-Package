@@ -55,7 +55,7 @@ const Navbar = () => {
                 </div>
                 <div className="relative flex items-center justify-center">
                     {user ? (
-                    <span className="px-2 font-medium text-lg">{user.first_name + " " + user.last_name}</span>
+                    <span className="px-2 font-medium text-lg">{user.first_name + " " +  user.last_name}</span>
                     ) : (
                         <Link href="#">Sign-In</Link>
                     )}
