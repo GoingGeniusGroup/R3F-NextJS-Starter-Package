@@ -21,3 +21,14 @@
         padding-top: 70px;
 }
 }
+
+.bg-black-full {
+    background-color: black;
+    height: 100vh;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

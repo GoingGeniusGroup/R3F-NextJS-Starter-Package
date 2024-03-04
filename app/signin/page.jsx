@@ -8,22 +8,18 @@ import Image from 'next/image'
 import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-
 const { log } = console
 const SignIn = () => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     const submit = {
       email,
       password,
     }
-
     log('Submit: ', submit)
-
     try {
       const { data } = await axios({
         url: '/api/signin',
@@ -32,15 +28,15 @@ const SignIn = () => {
       })
       log('Response:', data)
       if (data.success === true) {
-        router.push('/createavatar')
+        router.push(`/createavatar?$)`)
       }
     } catch (error) {
       log('Error: ', error)
     }
   }
   return (
-    <div className='flex w-full min-h-screen '>
-      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black w-full pl-28 pt-5 text-white'>
+    <div className='flex w-full min-h-screen'>
+      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black min-h-screen w-full pl-28 pt-5 text-white'>
         <div className='flex flex-col space-y-8 justify-between pt-5'>
           <div>
             <h1 className='font-bold text-4xl tracking-wide'> GG Users</h1>
@@ -115,7 +111,6 @@ const SignIn = () => {
                 <button
                   onClick={handleSubmit}
                   className='inline-block bg-black text-white font-bold rounded-lg px-6 py-2 hover:scale-110 transition duration-500 cursor-pointer'
-                  route='/createavatar'
                 >
                   Sign In
                 </button>
