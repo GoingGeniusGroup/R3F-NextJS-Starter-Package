@@ -27,12 +27,15 @@ export async function POST(request) {
       // If password doesn't match, return error indicating incorrect password
       return NextResponse.error('Incorrect password', 401)
     }
-
-    // Generate JWT token
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' })
-
-    // Return token along with user data
-    return NextResponse.json({ user, token })
+    // return NextResponse.json({ message: 'Sign-in successful', user })
+    // // If email and password are correct, redirect to home page//////////////////////////////////////use this later
+    // return NextResponse.redirect('http://localhost:3000/createavatar', {
+    //   body: JSON.stringify({ message: 'Sign-in successful' }),
+    // })
+    return NextResponse.json({ success: true }, { status: 200 })
+    // const absoluteURL = new URL('/createavatar', 'http://localhost:3000/createavatar')
+    // absoluteURL.searchParams.set('http://localhost:3000/signin', request.nextUrl.pathname)
+    // return NextResponse.redirect(absoluteURL.toString())
   } catch (error) {
     console.error('Error signing in:', error)
     return NextResponse.error('Internal Server Error', 500)
