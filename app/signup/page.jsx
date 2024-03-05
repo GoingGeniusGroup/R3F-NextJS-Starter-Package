@@ -1,11 +1,17 @@
-import Link from 'next/link';
+'use client'
 import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
 import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
 import { UserLogoIcon } from '@/logo/UserLogo'
 import { PasswordLogoIcon } from '@/logo/PasswordLogo'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
+
+const { log } = console
 export default function Page() {
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -21,12 +27,14 @@ export default function Page() {
 
         try {
         const { data } = await axios({
-            url: '/api/signin',
+            url: '/api/users',
             method: 'POST',
             data: submit,
         })
         log('Response:', data)
-        console.log(data)
+        if (data != null){
+            router.push('/signin')
+        }
         } catch (error) {
             log('Error: ', error)
         }
@@ -64,7 +72,9 @@ return (
                         />
                     </div>
                     <div className="signup-btn w-full p-5 flex items-center justify-center">
-                        <button className='w-full p-3 px-4 bg-gray-200 rounded-2xl'>Signup</button>
+                        <button 
+                        onClick={handleSubmit}
+                        className='w-full p-3 px-4 bg-gray-200 rounded-2xl'>Signup</button>
                     </div>
                 </form>
 

@@ -4,10 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion"
 import { useUser } from '@/context/UserContext/UserContext';
 
-const variants = {
-    open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "-100%" },
-}
 
 const Navbar = () => {
     const [isToggled, setToggle] = useState(false);
@@ -95,3 +91,5 @@ const Navbar = () => {
         
     );
 };
+
+export default Navbar;
