@@ -4,10 +4,9 @@ import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
 import { UserLogoIcon } from '@/logo/UserLogo'
 import { PasswordLogoIcon } from '@/logo/PasswordLogo'
-    
+
 export default function Page() {
 return (
-    // These are Tailwind classes:
     <main className="flex min-h-screen flex-col bg-black">
         <div className="welcome flex flex-col h-1/5 mb-10 p-3">
             <h1 className='font-bold text-4xl tracking-wide text-white'> GG Users</h1>
@@ -53,8 +52,6 @@ return (
                         <LogosFacebook className="logos text-2xl"/>
                     </a>
                 </div>
-
-
             </div>
         </div>
     </main>
