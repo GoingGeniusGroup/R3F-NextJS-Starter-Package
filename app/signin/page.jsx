@@ -7,8 +7,8 @@ import { CardBody, CardContainer, CardItem } from '@/components/card/card'
 import Image from 'next/image'
 import { useState } from 'react'
 import axios from 'axios'
-import { useRouter } from 'next/navigation'
 import { jwtDecode } from "jwt-decode";
+import { useRouter } from 'next/navigation'
 import { useUser } from '@/context/UserContext/UserContext';
 
 const { log } = console
@@ -17,7 +17,7 @@ const SignIn = () => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { setUser } = useUser();
+  const { updateUser } = useUser();
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -37,9 +37,8 @@ const SignIn = () => {
       log('Response:', data)
       const token = data.token;
       if (token) {
-        const decoded = jwtDecode(token)
-        const { data: userData } = await axios.get(`/api/users/${decoded.id}`)
-        setUser(userData);
+        sessionStorage.setItem('token', token); // Store token in sessionStorage
+        updateUser(token);
         router.push('/createavatar')
       }
     } catch (error) {
