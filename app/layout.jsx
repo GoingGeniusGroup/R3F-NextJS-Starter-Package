@@ -8,7 +8,7 @@ export const metadata = {
   description: 'A minimal starter for Nextjs + React-three-fiber and Visage',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, user }) {
   return (
     <html lang='en' className='antialiased'>
       {/*
