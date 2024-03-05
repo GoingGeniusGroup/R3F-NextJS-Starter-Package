@@ -17,7 +17,7 @@ export const MyComponent = () => {
   const [isOpen, setIsOpen] = useState(false)
 }
 
-export default function RootLayout({ children, user }) {
+export default function RootLayout({ children }) {
   return (
     <html lang='en' className='antialiased'>
       {/*
