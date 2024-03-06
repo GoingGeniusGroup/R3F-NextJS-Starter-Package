@@ -40,15 +40,9 @@ export default function Page() {
     }
 
 return (
-    <main className="flex min-h-screen flex-col bg-black">
-        <div className="welcome flex flex-col h-1/5 mb-10 p-3">
-            <h1 className='font-bold text-4xl tracking-wide text-white'> GG Users</h1>
-            <h2 className='pt-2 text-white text-xl'>Welcome!</h2>
-            <p className='pt-2 text-white text-sm'>Join for Free.</p>
-            <p className='text-sm text-white'>One Genius Account for all Genius Platform</p>
-        </div>
-        <div className="signup flex flex-col items-center justify-center rounded-t-3xl bg-slate-50 sm:h-1/4 lg:h-4/5 p-10">
-            <div className="card flex flex-col items-center justify-center gap-2 lg:w-2/4 h-auto rounded-2xl">
+    <main className="flex relative min-h-full flex-col">
+        <div className="signup flex flex-col items-center justify-center rounded-t-3xl sm:h-1/4 lg:h-4/5 p-10">
+            <div className="card flex flex-col items-center justify-center gap-2 lg:w-2/4 h-auto rounded-2xl backdrop-blur-sm shadow-lg shadow-purple-700">
                 <div className="card-title m-0 rounded-t-2xl p-2 mb-5">
                     <h2 className='p-2 text-xl text-center'>Signup</h2>
                 </div>

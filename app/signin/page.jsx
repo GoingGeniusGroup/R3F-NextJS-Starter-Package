@@ -45,8 +45,8 @@ const SignIn = () => {
     }
   }
   return (
-    <div className='flex w-full min-h-screen '>
-      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black w-full pl-28 pt-5 text-white'>
+    <div className='flex relative w-full min-h-screen'>
+      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 w-full pl-28 pt-5 text-white'>
         <div className='flex flex-col space-y-8 justify-between pt-5'>
           <div>
             <h1 className='font-bold text-4xl tracking-wide'> GG Users</h1>

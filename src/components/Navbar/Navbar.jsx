@@ -35,7 +35,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="sticky top-0 container mx-auto flex flex-col items-center justify-between z-10 border-b-1 backdrop-blur-xl shadow-md shadow-violet-500 rounded-2xl text-slate-50 "
+                className="sticky top-0 container mx-auto flex flex-col items-center justify-between z-50 border-b-1 backdrop-blur-xl shadow-md shadow-violet-500 rounded-2xl text-slate-50 "
             >
             <div className="container mx-auto flex items-center justify-between px-6 py-2 h-20">
                 <Link href="" className="flex relative items-center justify-center pl-1">
