@@ -7,7 +7,6 @@ import { CardBody, CardContainer, CardItem } from '@/components/card/card'
 import Image from 'next/image'
 import { useState } from 'react'
 import axios from 'axios'
-import { jwtDecode } from 'jwt-decode'
 import { useRouter } from 'next/navigation'
 import { useUser } from '@/context/UserContext/UserContext'
 

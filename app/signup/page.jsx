@@ -15,7 +15,6 @@ export default function Page() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-
     const handleSubmit = async (event) => {
         event.preventDefault()
         const submit = {
