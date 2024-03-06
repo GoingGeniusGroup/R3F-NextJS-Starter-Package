@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
                 Authorization: `Bearer ${token}`,
             },
         });
-        setUser(userData);
+        setUser(userData);  
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
