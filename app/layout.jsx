@@ -22,12 +22,12 @@ export default function RootLayout({ children, user }) {
       <body>
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         <UserProvider>
-            <Layout>
-              <MainContent>
-                {children}
-              </MainContent>
-            </Layout>
-          </UserProvider>
+          <Layout>
+            <MainContent>
+              {children}
+            </MainContent>
+          </Layout>
+        </UserProvider>
       </body>
     </html>
   )

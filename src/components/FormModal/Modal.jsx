@@ -8,7 +8,7 @@ const FormModal = ({show, onclose, children}) => {
             }}
             className="absolute top-0 left-0 w-full h-full z-20 transition-all duration-700"
         >
-            <div className="container mx-auto max-w-2xl h-auto shadow-violet-500 shadow-sm rounded-3xl backdrop-blur-lg p-3">
+            <div className="container mx-auto max-w-2xl h-auto shadow-violet-500 shadow-sm rounded-3xl backdrop-blur-md p-3">
                 <motion.button
                     whileHover = {{scale:1.1}}
                     whileTap = {{scale:0.8}}
