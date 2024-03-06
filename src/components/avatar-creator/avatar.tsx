@@ -22,7 +22,7 @@ export default function Avatar_creator() {
       <>
         <AvatarCreator subdomain="gguser" config={config} style={style} onAvatarExported={handleOnAvatarExported} />
         {avatarUrl && <Avatar modelSrc={avatarUrl} />}
-        
+        <button>Next</button>
       </>
   );
 }
