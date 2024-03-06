@@ -1,13 +1,46 @@
-import Link from 'next/link';
+'use client'
 import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
 import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
 import { UserLogoIcon } from '@/logo/UserLogo'
 import { PasswordLogoIcon } from '@/logo/PasswordLogo'
-    
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
+
+
+const { log } = console
 export default function Page() {
+    const router = useRouter()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        const submit = {
+            email,
+            password,
+        }
+
+        log('Submit: ', submit)
+
+        try {
+        const { data } = await axios({
+            url: '/api/users',
+            method: 'POST',
+            data: submit,
+        })
+        log('Response:', data)
+        if (data != null){
+            router.push('/signin')
+        }
+        } catch (error) {
+            log('Error: ', error)
+        }
+    }
+
 return (
-    // These are Tailwind classes:
     <main className="flex min-h-screen flex-col bg-black">
         <div className="welcome flex flex-col h-1/5 mb-10 p-3">
             <h1 className='font-bold text-4xl tracking-wide text-white'> GG Users</h1>
@@ -24,16 +57,24 @@ return (
                     <label htmlFor="" className='labels'>Email</label>
                     <div className="input-group m-2 rounded-md flex ">
                         <div className='input-icon'><UserLogoIcon/></div>
-                        <input type="email" name="email" className='p-2 rounded-md'/>
+                        <input type="email" name="email" className='p-2 rounded-md'
+                            value={email}
+                            onChange={({ target }) => setEmail(target?.value)}
+                        />
                     </div>
 
                     <label htmlFor="" className='labels'>Password</label>
                     <div className="input-group m-2 rounded-md flex">
                         <div className='input-icon'><PasswordLogoIcon/></div>
-                        <input type="password" name="password" className='p-2 rounded-md'/>
+                        <input type="password" name="password" className='p-2 rounded-md'
+                            value={password}
+                            onChange={({ target }) => setPassword(target?.value)}    
+                        />
                     </div>
                     <div className="signup-btn w-full p-5 flex items-center justify-center">
-                        <button className='w-full p-3 px-4 bg-gray-200 rounded-2xl'>Signup</button>
+                        <button 
+                        onClick={handleSubmit}
+                        className='w-full p-3 px-4 bg-gray-200 rounded-2xl'>Signup</button>
                     </div>
                 </form>
 
@@ -53,8 +94,6 @@ return (
                         <LogosFacebook className="logos text-2xl"/>
                     </a>
                 </div>
-
-
             </div>
         </div>
     </main>
