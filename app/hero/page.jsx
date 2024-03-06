@@ -146,7 +146,7 @@ export default function Hero() {
             <View className='flex h-20 w-full flex-col items-center justify-center'>
             <Suspense fallback={null}>
               <Type scale={2} position={[0, 0, 0]} />
-              <Common color={'white'}/>
+              <Common />
             </Suspense>
           </View>
         </div>

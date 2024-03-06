@@ -45,7 +45,7 @@ const SignIn = () => {
     }
   }
   return (
-    <div className='flex relative w-full min-h-screen'>
+    <div className='flex relative w-full min-h-full'>
       <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 w-full pl-28 pt-5 text-white'>
         <div className='flex flex-col space-y-8 justify-between pt-5'>
           <div>
