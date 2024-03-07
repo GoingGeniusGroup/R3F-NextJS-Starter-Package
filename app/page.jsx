@@ -34,11 +34,7 @@ export default function Page() {
   const [cardAvatar, setCardAvatar] = useState('aa.png')
   return (
     <>
-      <div className='relative flex flex-col h-full w-full bg-[#030017]' id='about-me'>
-        <video autoPlay muted loop className='rotate-180 absolute top-[-367px] h-screen w-full left-0 z-0 object-cover'>
-          <source src='/bg/blackhole.webm' type='video/webm' />
-        </video>
-
+      <div className='relative flex flex-col h-full w-full ' id='about-me'>
         <div className='flex items-center justify-center w-full h-full p-10 z-20'>
           <motion.button
             whileHover={{ scale: 1.1 }}
