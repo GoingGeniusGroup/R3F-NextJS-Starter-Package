@@ -7,6 +7,7 @@ import { PasswordLogoIcon } from '@/logo/PasswordLogo'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import { motion } from "framer-motion"
 
 
 const { log } = console
@@ -41,33 +42,45 @@ export default function Page() {
 
 return (
     <main className="flex relative min-h-full flex-col">
-        <div className="signup flex flex-col items-center justify-center rounded-t-3xl sm:h-1/4 lg:h-4/5 p-10">
-            <div className="card flex flex-col items-center justify-center gap-2 lg:w-2/4 h-auto rounded-2xl backdrop-blur-sm shadow-lg shadow-purple-700">
-                <div className="card-title m-0 rounded-t-2xl p-2 mb-5">
-                    <h2 className='p-2 text-xl text-center'>Signup</h2>
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.4 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: .5, delay: 0.4 }}
+            className="signup flex flex-col items-center justify-center rounded-t-3xl sm:h-1/4 lg:h-4/5 p-10 text-white"
+        >
+            <div className="card flex flex-col items-center justify-center gap-2 lg:w-2/4 h-auto rounded-3xl backdrop-blur-sm shadow-lg shadow-purple-700">
+                <div className="card-title m-0 p-2 mb-5 backdrop-blur-3xl border-y-2 rounded-t-3xl shadow-sm bg-[rgba(254,225,255,0.3)]">
+                    <h2 className='p-2 text-xl text-center text-purple-900'>Signup</h2>
                 </div>
                 <form action="#" className='flex flex-col items-center justify-center gap-2 p-3'>
-                    <label htmlFor="" className='labels'>Email</label>
-                    <div className="input-group m-2 rounded-md flex ">
-                        <div className='input-icon'><UserLogoIcon/></div>
-                        <input type="email" name="email" className='p-2 rounded-md'
+                    <label htmlFor="" className='labels font-semibold text-xl'>Email</label>
+                    <div 
+                        className="input-group m-2 rounded-md flex"
+                    >
+                        <div className='input-icon text-black'><UserLogoIcon/></div>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            className='p-2 rounded-md text-black'
                             value={email}
                             onChange={({ target }) => setEmail(target?.value)}
                         />
                     </div>
 
-                    <label htmlFor="" className='labels'>Password</label>
+                    <label htmlFor="" className='labels font-semibold text-xl'>Password</label>
                     <div className="input-group m-2 rounded-md flex">
-                        <div className='input-icon'><PasswordLogoIcon/></div>
-                        <input type="password" name="password" className='p-2 rounded-md'
+                        <div className='input-icon text-black'><PasswordLogoIcon/></div>
+                        <input type="password" name="password" className='p-2 rounded-md text-black'
                             value={password}
                             onChange={({ target }) => setPassword(target?.value)}    
                         />
                     </div>
                     <div className="signup-btn w-full p-5 flex items-center justify-center">
-                        <button 
-                        onClick={handleSubmit}
-                        className='w-full p-3 px-4 bg-gray-200 rounded-2xl'>Signup</button>
+                        <motion.button 
+                        whileHover={{scale:1.05}}
+                        whileTap = {{scale:0.95}}
+                        onClick= {handleSubmit}
+                        className='w-full p-3 px-4 bg-gray-200 rounded-2xl text-black'>Signup</motion.button>
                     </div>
                 </form>
 
@@ -88,7 +101,7 @@ return (
                     </a>
                 </div>
             </div>
-        </div>
+        </motion.div>
     </main>
     )   
 }
