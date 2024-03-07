@@ -47,12 +47,7 @@ const SignIn = () => {
     <div className='flex relative w-full min-h-full'>
       <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 w-full pl-28 pt-5 text-white'>
         <div className='flex flex-col space-y-8 justify-between pt-5'>
-          <div>
-            <h1 className='font-bold text-4xl tracking-wide'> GG Users</h1>
-            <h2 className='pt-2 text-white text-xl'>Welcome!</h2>
-            <p className='pt-2 text-white text-sm'>Join for Free.</p>
-            <p className='text-yellow-300 text-sm'>One Genius Account for all Genius Platform</p>
-          </div>
+          <div></div>
           <div>
             <CardContainer className='hover:shadow-3xl dark:border-none dark:hover:border-none dark:hover:shadow-3xl py-0'>
               <CardBody className='group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]'>
@@ -94,7 +89,7 @@ const SignIn = () => {
                     placeholder='Email'
                     value={email}
                     onChange={({ target }) => setEmail(target?.value)}
-                    className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-yellow-300'
+                    className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-purple-500'
                   />
                 </div>
                 <div>
@@ -103,7 +98,7 @@ const SignIn = () => {
                     placeholder='Password'
                     value={password}
                     onChange={({ target }) => setPassword(target?.value)}
-                    className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-yellow-300'
+                    className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-purple-500'
                   />
                 </div>
                 <div className=''>
@@ -146,6 +141,14 @@ const SignIn = () => {
                       <LogosFacebook style={{ fontSize: '24px' }} />
                     </a>
                   </div>
+                </div>
+                <div className='flex justify-center'>
+                  <p className=' text-sm flex justify-between'>
+                    Not a Genius User yet?
+                    <a href='/signup' className='text-blue-500 text-start' style={{ marginRight: '2.75rem' }}>
+                      Sign Up Now
+                    </a>
+                  </p>
                 </div>
               </form>
             </div>
