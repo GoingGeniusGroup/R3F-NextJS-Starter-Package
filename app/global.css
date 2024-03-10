@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -15,6 +16,10 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: #020113;
+
+
+    
   }
   .flip-card {
   perspective: 1000px;
