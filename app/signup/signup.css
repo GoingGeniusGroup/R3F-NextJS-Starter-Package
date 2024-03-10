@@ -3,7 +3,6 @@
 }
 
 .card-title {
-  background-color: rgb(140, 7, 241);
   width: 100%;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -11,7 +10,6 @@
 
 .signup .card {
   border: 1px solid grey;
-  background-color: rgba(248, 248, 255, 0.2);
 }
 .signup .input-group {
   position: relative;
