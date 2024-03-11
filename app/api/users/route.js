@@ -4,11 +4,22 @@ import bcrypt from 'bcrypt'
 
 const prisma = new PrismaClient()
 
-// Function to create user
 export async function POST(request) {
   try {
     const data = await request.json()
-    const { first_name, last_name, email, phone_number, password } = data
+    const { email, password } = data
+
+    // Check if email or password is null
+    if (!email || !password) {
+      return NextResponse.json(
+        {
+          message: 'Email and password are required fields.',
+        },
+        {
+          status: 400,
+        },
+      )
+    }
 
     // Check if the email already exists
     const existingEmail = await prisma.users.findUnique({
@@ -27,31 +38,11 @@ export async function POST(request) {
       )
     }
 
-    // Check if the phone number already exists
-    const existingPhoneNumber = await prisma.users.findUnique({
-      where: { phone_number },
-    })
-
-    if (existingPhoneNumber) {
-      return NextResponse.json(
-        {
-          users: null,
-          message: 'User with this phone number already exists!!!',
-        },
-        {
-          status: 409,
-        },
-      )
-    }
-
-    // If email and phone number don't exist, create a new user
+    // Create a new user
     const hashedPassword = await bcrypt.hash(password, 10)
     const newUser = await prisma.users.create({
       data: {
-        first_name,
-        last_name,
         email,
-        phone_number,
         password: hashedPassword,
       },
     })

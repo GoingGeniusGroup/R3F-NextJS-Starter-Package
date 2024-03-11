@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import FormModal from '@/components/FormModal/Modal';
+import { motion } from "framer-motion"
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Avatar_2 = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Avatar), { ssr: false })
@@ -23,90 +25,87 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
+
 export default function Page() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [cardBackground, setCardBackground] = useState('project-card-bg.jpg')
+  const [cardAvatar, setCardAvatar] = useState('aa.png')
   return (
     <>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-        {/* jumbo */}
-        <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <p className='w-full uppercase'>Next + React Three Fiber GG-User Module</p>
-          <h1 className='my-4 text-5xl font-bold leading-tight'>Next 3D Starter</h1>
-          <p className='mb-8 text-2xl leading-normal'>A minimalist starter for React, React-three-fiber and Threejs with Avatar creator and User Auth.
-          Integrating StoryBook, component standarization will be easier.
-          </p>
-        </div>
+      <div className="relative flex flex-col h-full w-full " id="about-me">
 
-        <div className='w-full text-center md:w-3/5'>
-          <View className='flex h-96 w-full flex-col items-center justify-center'>
-            <Suspense fallback={null}>
-              <Logo route='/card' scale={0.6} position={[0, 0, 0]} />
-              <Common color={'white'}/>
-            </Suspense>
-          </View>
-        </div>
-      </div>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center p-12 md:flex-row  lg:w-4/5'>
-        {/* first row */}
-        <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Your Avatars are propagated</h2>
-          <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
-          <a className='mb-8 text-blue-600' href='https://gguser.readyplayer.me/avatar?frameApi'>Download your Avatar from here using Ready Player Me.</a>
-          <p className='mb-8 text-gray-600'>
-            To get resources to generate your avatar in different poses,file-format, quality: You can visit this...  
-            <a className='mb-8 text-blue-600' href='https://docs.google.com/spreadsheets/d/1bDsUj-m5wBob4ps1g2d1YFN90HoLANMxi13KvetPhs0/edit?usp=sharing'>
-              link
-            </a> 
-          </p>
-        </div>
-        <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
-          <View orbit className='relative h-full  sm:h-48 sm:w-full'>
-            <Suspense fallback={null}>
-              <Avatar_2 scale={2} position={[0, -1.6, 0]} rotation={[0.0, 0, 0]} />
-              <Common color={'lightyellow'} />
-            </Suspense>
-          </View>
-        </div>
-        {/* second row */}
-        <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
-          <View orbit className='relative h-full animate-bounce sm:h-48 sm:w-full'>
-            <Suspense fallback={null}>
-              <Avatar_1 modelSrc="https://models.readyplayer.me/65d5fe627fe6ce384b5195e6.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"/>
-              <Common color={'lightblue'} />
-            </Suspense>
-          </View>
-        </div>
-        <div className='w-full p-6 sm:w-1/2'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Ready Player Me Downloaded .glb</h2>
-          <p className='mb-8 text-gray-600'>
-           I have named this component Avatar_1. To change your avatar model in this div, go to src/components/canvas/examples.jsx and change the /avatar_1.glb to your file name.
-          </p>
-        </div>
-      </div>
-        {/* first row */}
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-      <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Your Animated Avatars are propagated</h2>
-          <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
-          <a className='mb-8 text-blue-600' href='https://gguser.readyplayer.me/avatar?frameApi'>Edit your Avatar from here using Ready Player Me.</a>
-          <p className='mb-8 text-gray-600'> Replace 65d5fe627fe6ce384b5195e6.glb with your avatar_number.glb in Avatar component. And, change male-spawn-animation.fbx with file_name.fbx to change animation.
-           Animation reference files are located in /public.   
-          </p>
-        </div>
-      <div className='relative my-12 h-96 w-full py-6 sm:w-1/2 md:mb-40'>
-          {/* <Avatar 
-            modelSrc="https://models.readyplayer.me/65d5fe627fe6ce384b5195e6.glb?morphTargets=ARKit,Eyes Extra&textureAtlas=none&lod=0"
-            shadows
-            animationSrc="/male-spawn-animation.fbx"
-
-            style={{ background: 'rgb(9,20,26)' }}
-            fov={45}
-            effects={{
-              ambientOcclusion: true
+        <div className='flex items-center justify-center w-full h-full p-10 z-20'>
+          <motion.button
+            whileHover = {{scale:1.1}}
+            whileTap = {{scale:0.9}}
+            className='rounded-2xl text-white border-2 p-2 hover:bg-violet-900 shadow-md shadow-violet-600 backdrop-blur-xl'
+            onClick={() => {
+              setIsModalOpen(true);
             }}
-            >
-          </Avatar> */}
-          
-      </div>
+          >
+            Open Project Modal
+          </motion.button>
+          <FormModal
+            show={isModalOpen}
+            onclose={setIsModalOpen}
+          >
+            <form action="#" method="" className="w-full max-w-lg mx-auto flex flex-col items-center justify-center">
+              <div className="image-preview relative bg-white h-44 w-50 object-fit overflow-hidden rounded-md mb-10">
+                <img src={`/${cardBackground}`}/>
+                <div className="avatar-img absolute right-2 top-0 h-20 w-40 z-10">
+                  <img src={`/${cardAvatar}`}/>
+                </div>
+                <div id='name-preview' className="absolute bottom-0 bw-full rounded-lg p-3 backdrop-blur-2xl">
+                  {name}
+                </div>
+                <div id='description-preview' className="absolute top-0 w-full rounded-t-sm p-3">
+                  {description}
+                </div>
+              </div>
+              <div className="form-section grid grid-rows-4 grid-cols-3 gap-10 text-white grid-">
+                <div className="upload-images flex col-start-1 col-end-4">
+                  <div className="avatar-bg text-center">
+                    <label htmlFor="avatar-bg" className='mx-auto'>Card Background</label>
+                    <input type="file" 
+                      onChange={(e) => setCardBackground(e.target.files[0].name)}
+                    />
+                  </div>
+                  <div className="avatar text-center">
+                    <label  htmlFor="avatar-img" className='mx-auto'>Avatar</label>
+                    <input type="file" id='avatar-img' 
+                      onChange={(e) => setCardAvatar(e.target.files[0].name)}
+                    />
+                  </div>
+                </div>
+                <div className='flex flex-col col-start-1 col-span-4'>
+                  <label htmlFor="project-name" className='pr-5 text-'>Name</label>
+                  <input type="text" id='project-name' className='w-80 h-8 p-2 text-black' placeholder='Project Name' 
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className='col-start-1 col-span-4'>
+                  <label htmlFor="project-descrip" className='pr-5 text-'>Description</label>
+                  <textarea id='project-descrip' className='w-full h-12 p-1 resize-none text-black' placeholder='Description'
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </div>
+
+                <div className="btn col-start-1 col-span-4 flex items-center justify-center" type="submit">
+                  <motion.button
+                    whileHover = {{scale:1.1}}
+                    whileTap = {{scale:0.9}}
+                    className='rounded-2xl text-white border-2 p-2 hover:bg-violet-900 shadow-md shadow-violet-600 backdrop-blur-xl'
+                  >
+                    Pathaideu
+                  </motion.button>
+                </div>
+              </div>
+            </form>
+          </FormModal>
+        </div>
       </div>
     </>
   )
