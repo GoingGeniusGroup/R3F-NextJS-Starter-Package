@@ -2,13 +2,15 @@
 import { LogosGoogleIcon } from '@/logo/LogosGoogleIcon'
 import { LogosApple } from '@/logo/LogosApple'
 import { LogosFacebook } from '@/logo/LogosFacebook'
-import styles from './signin.module.css'
 import { CardBody, CardContainer, CardItem } from '@/components/card/card'
 import Image from 'next/image'
 import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useUser } from '@/context/UserContext/UserContext'
+import { motion } from 'framer-motion'
+import { UserLogoIcon } from '@/logo/UserLogo'
+import { PasswordLogoIcon } from '@/logo/PasswordLogo'
 
 const { log } = console
 const SignIn = () => {
@@ -44,118 +46,101 @@ const SignIn = () => {
     }
   }
   return (
-    <div className='flex relative w-full min-h-full'>
-      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 w-full pl-28 pt-5 text-white'>
-        <div className='flex flex-col space-y-8 justify-between pt-5'>
-          <div></div>
-          <div>
-            <CardContainer className='hover:shadow-3xl dark:border-none dark:hover:border-none dark:hover:shadow-3xl py-0'>
-              <CardBody className='group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]'>
-                <div className='flex'>
-                  <CardItem className='mt-4 w-full'>
-                    <Image
-                      src='/aa.png'
-                      height='1000'
-                      width='1000'
-                      className='size-full rounded-xl object-cover group-hover/card:shadow-xl'
-                      alt='thumbnail'
-                    />
-                  </CardItem>
-                  <div className='flex flex-col'>
-                    <CardItem translateZ='50' className='text-2xl font-bold text-neutral-600 dark:text-white'>
-                      Genius Card
-                    </CardItem>
-                    <CardItem
-                      as='p'
-                      translateZ='60'
-                      className='mt-2 max-w-sm text-lg text-[#39ff14] dark:text-[#39ff14]'
-                    >
-                      Coming Soon!
-                    </CardItem>
-                    <div className='mt-20 flex items-center justify-between'></div>
-                  </div>
+    <>
+      <main className='flex relative min-h-full flex-col'>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.4 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className='signin flex flex-col items-center rounded-t-3xl sm:h-1/4 lg:h-4/5 p-10 text-white'
+        >
+          <div className='card flex flex-col items-center justify-center gap-2 lg:w-2/4 h-auto rounded-3xl backdrop-blur-sm shadow-lg shadow-purple-700'>
+            <div className='card-title m-0 p-2 mb-5 backdrop-blur-3xl border-y-2 rounded-t-3xl shadow-sm bg-[rgba(254,225,255,0.3)]'>
+              <h2 className='p-2 text-xl text-center text-purple-900'>Signin</h2>
+            </div>
+            <form action='#' className='flex flex-col items-center justify-center gap-2 p-3'>
+              <label htmlFor='' className='labels font-semibold text-xl '>
+                Email
+              </label>
+              <div className='input-group m-2 rounded-md flex '>
+                <div className='input-icon text-black'>
+                  <UserLogoIcon />
                 </div>
-              </CardBody>
-            </CardContainer>
-          </div>
+                <input
+                  type='email'
+                  name='email'
+                  className='p-2 rounded-md text-black '
+                  value={email}
+                  onChange={({ target }) => setEmail(target?.value)}
+                />
+              </div>
 
-          <div className={styles.container}>
-            <div className='bg-white rounded-3xl shadow-lg p-5 text-gray-600 '>
-              <h1 className='font-bold text-black justify-center text-center text-3xl'> Sign In</h1>
-              <form action='' className='flex flex-col space-y-4 p-3'>
-                <div>
-                  <input
-                    type='email'
-                    placeholder='Email'
-                    value={email}
-                    onChange={({ target }) => setEmail(target?.value)}
-                    className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-purple-500'
-                  />
+              <label htmlFor='' className='labels font-semibold text-xl'>
+                Password
+              </label>
+              <div className='input-group m-2 rounded-md flex'>
+                <div className='input-icon text-black'>
+                  <PasswordLogoIcon />
                 </div>
-                <div>
-                  <input
-                    type='password'
-                    placeholder='Password'
-                    value={password}
-                    onChange={({ target }) => setPassword(target?.value)}
-                    className='ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-purple-500'
-                  />
-                </div>
-                <div className=''>
-                  <p className='text-blue-500 text-sm flex justify-between'>
-                    <a href='' className='text-start' style={{ marginRight: '2.75rem' }}>
-                      Mobile Sign In
-                    </a>
-                    <a href='' className='text-end'>
-                      Forgot Password?
-                    </a>
-                  </p>
-                </div>
+                <input
+                  type='password'
+                  name='password'
+                  className='p-2 rounded-md text-black'
+                  value={password}
+                  onChange={({ target }) => setPassword(target?.value)}
+                />
+              </div>
+              <div className=''>
+                <p className='text-blue-500 text-sm flex justify-between'>
+                  <a href='' className='text-start' style={{ marginRight: '2.75rem' }}>
+                    Mobile Sign In
+                  </a>
+                  <a href='' className='text-end'>
+                    Forgot Password?
+                  </a>
+                </p>
+              </div>
 
-                <button
+              <div className='signup-btn w-full p-5 flex items-center justify-center'>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={handleSubmit}
-                  className='inline-block bg-black text-white font-bold rounded-lg px-6 py-2 hover:scale-110 transition duration-500 cursor-pointer'
-                  route='/createavatar'
+                  className='w-full p-3 px-4 bg-purple-200 rounded-2xl text-black'
                 >
-                  Sign In
-                </button>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <hr style={{ flex: '1', border: 'none', borderBottom: '0.5px solid black' }} />
-                  <p style={{ margin: '0 5px' }}>or</p>
-                  <hr style={{ flex: '1', border: 'none', borderBottom: '0.5px solid black' }} />
-                </div>
+                  Signin
+                </motion.button>
+              </div>
+            </form>
 
-                <div className='flex space-x-11 justify-center'>
-                  <div className='justify-center p-5 flex hover:scale-125 transition duration-500 cursor-pointer'>
-                    <a href=''>
-                      <LogosGoogleIcon style={{ fontSize: '24px' }} />
-                    </a>
-                  </div>
-                  <div className='justify-center p-5 flex hover:scale-125 transition duration-500 cursor-pointer'>
-                    <a href=''>
-                      <LogosApple style={{ fontSize: '24px' }} />
-                    </a>
-                  </div>
-                  <div className='justify-center p-5 flex hover:scale-125 transition duration-500 cursor-pointer'>
-                    <a href=''>
-                      <LogosFacebook style={{ fontSize: '24px' }} />
-                    </a>
-                  </div>
-                </div>
-                <div className='flex justify-center'>
-                  <p className=' text-sm flex justify-between'>
-                    Not a Genius User yet?
-                    <a href='/signup' className='text-blue-500 text-start' style={{ marginRight: '2.75rem' }}>
-                      Sign Up Now
-                    </a>
-                  </p>
-                </div>
-              </form>
+            <div className='flex items-end'>
+              <hr className='border-solid h-1 text-black w-full' />
+              <p className='font-semibold px-5'>or</p>
+              <hr className='h-px' />
+            </div>
+            <div className='flex justify-center gap-16 p-5'>
+              <a href=''>
+                <LogosGoogleIcon className='logos text-2xl' />
+              </a>
+              <a href=''>
+                <LogosApple className='logos text-2xl' />
+              </a>
+              <a href=''>
+                <LogosFacebook className='logos text-2xl' />
+              </a>
+            </div>
+            <div className='flex justify-center'>
+              <p className=' text-sm flex justify-between'>
+                Not a Genius User yet?
+                <a href='/signup' className='text-blue-500 text-start' style={{ marginRight: '2.75rem' }}>
+                  Sign Up Now
+                </a>
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </main>
+    </>
   )
 }
 export default SignIn

@@ -44,14 +44,8 @@ const SignIn = () => {
   // }, [])
   return (
     <div className='flex w-full min-h-screen '>
-      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-black w-full pl-28 pt-5 text-white'>
+      <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 w-full pl-28 pt-5 text-white'>
         <div className='flex flex-col space-y-8 justify-between pt-5'>
-          <div>
-            <h1 className='font-bold text-4xl tracking-wide'> GG Card</h1>
-            <h2 className='pt-2 text-white text-xl'>Welcome!</h2>
-            <p className='pt-2 text-white text-sm'>Please provide us with your information for your</p>
-            <p className='text-yellow-300 text-sm'>Genius Card</p>
-          </div>
           <div>
             <CardContainer className='hover:shadow-3xl dark:border-none dark:hover:border-none dark:hover:shadow-3xl py-0'>
               <CardBody className='group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]'>
