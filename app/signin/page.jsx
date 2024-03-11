@@ -71,6 +71,7 @@ const SignIn = () => {
                   name='email'
                   className='p-2 rounded-md text-black '
                   value={email}
+                  placeholder='Email'
                   onChange={({ target }) => setEmail(target?.value)}
                 />
               </div>
@@ -86,6 +87,7 @@ const SignIn = () => {
                   type='password'
                   name='password'
                   className='p-2 rounded-md text-black'
+                  placeholder='Password'
                   value={password}
                   onChange={({ target }) => setPassword(target?.value)}
                 />

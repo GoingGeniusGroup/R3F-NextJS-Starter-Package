@@ -6,7 +6,7 @@ const FormModal = ({show, onclose, children}) => {
             style={{
                 transform: show ? "translateX(0%)" : "translateX(-200%)"
             }}
-            className="absolute top-0 left-0 w-full h-full z-20 transition-all duration-700"
+            className="absolute top-5 left-0 w-full h-full z-20 transition-all duration-700"
         >
             <div className="container mx-auto max-w-2xl h-auto shadow-violet-500 shadow-sm rounded-3xl backdrop-blur-md p-3">
                 <motion.button
