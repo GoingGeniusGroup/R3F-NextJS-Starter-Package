@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 export async function GET(request, { params }) {
   try {
-    const id = parseInt(params.id)
+    const id = params.id
 
     // Fetch the skill by ID
     const skill = await prisma.skills.findUnique({
@@ -26,7 +26,7 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
   try {
     const { skill, percentage, gg_id } = await request.json()
-    const id = parseInt(params.id)
+    const id = params.id
 
     // Update the skill
     const updatedSkill = await prisma.skills.update({
@@ -44,7 +44,7 @@ export async function PUT(request, { params }) {
 // Function to delete a skill
 export async function DELETE(request, { params }) {
   try {
-    const id = parseInt(params.id)
+    const id = params.id
 
     // Delete the skill
     const deletedSkill = await prisma.skills.delete({

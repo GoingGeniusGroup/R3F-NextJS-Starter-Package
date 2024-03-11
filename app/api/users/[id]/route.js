@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 // Function to read a user by ID
 export async function GET(request, { params }) {
   try {
-    const id = parseInt(params.id)
+    const id = params.id
 
     // Fetch the user by ID
     const user = await prisma.users.findUnique({
@@ -58,7 +58,7 @@ export async function PUT(request, { params }) {
     const data = await request.json()
     console.log(data)
     const { first_name, last_name, email, phone_number, image_url, description, address } = data
-    const id = parseInt(params.id)
+    const id = params.id
 
     // Check if the user exists
     const existingUser = await prisma.users.findUnique({
@@ -84,7 +84,7 @@ export async function PUT(request, { params }) {
 //Function to delete user
 export async function DELETE(request, { params }) {
   try {
-    const id = parseInt(params.id)
+    const id = params.id
     const deletedUser = await prisma.users.delete({
       where: { gg_id: id },
     })

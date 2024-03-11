@@ -8,7 +8,7 @@ export async function PUT(request, { params }) {
     const data = await request.json()
     console.log(data)
     const { first_name, last_name, phone_number, address } = data
-    const id = parseInt(params.id)
+    const id = params.id
 
     // Check if the user exists
     const existingUser = await prisma.users.findUnique({
