@@ -28,7 +28,7 @@ model users {
   avatar_url     String?   @db.VarChar(255)
   created_at     DateTime? @default(now()) @db.Timestamp(6)
   image_url      String?   @db.VarChar(255)
-  description    String?
+  description    String?   @db.Text
   address        String?   @db.VarChar(200)
   skills         skills[]
 }

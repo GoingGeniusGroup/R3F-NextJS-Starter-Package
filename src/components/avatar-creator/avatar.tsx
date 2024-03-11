@@ -1,4 +1,5 @@
 'use client'
+<<<<<<< HEAD
 import { AvatarCreator, AvatarCreatorConfig, AvatarExportedEvent } from '@readyplayerme/react-avatar-creator'
 import { Avatar } from '@readyplayerme/visage'
 import { useState } from 'react'
@@ -7,6 +8,12 @@ import { Avatar } from '@readyplayerme/visage'
 import { useState } from 'react'
 import axios from 'axios'
 import { useUser } from '@/context/UserContext/UserContext'
+=======
+
+import { AvatarCreator, AvatarCreatorConfig, AvatarExportedEvent } from '@readyplayerme/react-avatar-creator'
+import { Avatar } from '@readyplayerme/visage'
+import { useState } from 'react'
+>>>>>>> 1de9dcca051b43fb6accc015248e213dfa8e0523
 
 const config: AvatarCreatorConfig = {
   clearCache: false,
@@ -64,3 +71,7 @@ export default function Avatar_creator() {
     </>
   )
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1de9dcca051b43fb6accc015248e213dfa8e0523
