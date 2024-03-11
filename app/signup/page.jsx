@@ -8,6 +8,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import { motion } from "framer-motion"
+import { CardBody, CardContainer, CardItem } from '@/components/card/card'
+import Image from 'next/image'
 
 
 const { log } = console
@@ -41,14 +43,49 @@ export default function Page() {
     }
 
 return (
-    <main className="flex relative min-h-full flex-col">
+    <main className="flex relative min-h-full flex-col items-center justify-around md:flex-row">
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.4 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: .5, delay: 0.3 }}
+            className='items-center justify-center hidden sm:flex pl-10'
+        >
+            <CardContainer className='hover:shadow-3xl dark:border-none dark:hover:border-none dark:hover:shadow-3xl py-0 px-10'>
+                <CardBody className='group/card relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-3xl dark:hover:shadow-emerald-500/[0.1]'>
+                <div className='flex'>
+                    <CardItem className='mt-4 w-full'>
+                    <Image
+                        src='/aa.png'
+                        height='1000'
+                        width='1000'
+                        className='size-full rounded-xl object-cover group-hover/card:shadow-xl'
+                        alt='thumbnail'
+                    />
+                    </CardItem>
+                    <div className='flex flex-col'>
+                    <CardItem translateZ='50' className='text-2xl font-bold text-neutral-600 dark:text-white'>
+                        Genius Card
+                    </CardItem>
+                    <CardItem
+                        as='p'
+                        translateZ='60'
+                        className='mt-2 max-w-sm text-lg text-[#39ff14] dark:text-[#39ff14]'
+                    >
+                        Coming Soon!
+                    </CardItem>
+                    <div className='mt-20 flex items-center justify-between'></div>
+                    </div>
+                </div>
+                </CardBody>
+            </CardContainer>
+        </motion.div>
         <motion.div 
             initial={{ opacity: 0, scale: 0.4 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: .5, delay: 0.4 }}
-            className="signup flex flex-col items-center justify-center rounded-t-3xl sm:h-1/4 lg:h-4/5 p-10 text-white"
+            className="signup flex flex-col items-center justify-center rounded-t-3xl sm:h-1/4 md:h-2/4py py-10 text-white flex-1"
         >
-            <div className="card flex flex-col items-center justify-center gap-2 lg:w-2/4 h-auto rounded-3xl backdrop-blur-sm shadow-lg shadow-purple-700">
+            <div className="card flex flex-col items-center justify-center gap-2 lg:w-3/5 h-auto rounded-3xl backdrop-blur-sm shadow-lg shadow-purple-700">
                 <div className="card-title m-0 p-2 mb-5 backdrop-blur-3xl border-y-2 rounded-t-3xl shadow-sm bg-[rgba(254,225,255,0.3)]">
                     <h2 className='p-2 text-xl text-center text-purple-900'>Signup</h2>
                 </div>

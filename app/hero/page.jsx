@@ -165,26 +165,26 @@ export default function Hero() {
         {/* <EnvironmentModel environment="spaceStation" scale={1} /> */}
         <div className='right-[30%] top-[32%] size-full md:absolute'>
             <div className='ml-[12%] flex flex-col items-center justify-center'> 
-                <h2 className="mb-12 text-4xl font-extrabold text-gray-900">Ayush Lama</h2>
+                <h2 className="mb-12 text-4xl font-extrabold">Ayush Lama</h2>
                 <nav className="flex flex-col space-y-4">
                     <div className="flex items-center space-x-2">
-                        <LaptopIcon className="size-6 text-gray-600" />
+                        <LaptopIcon className="size-" />
                         <div>
-                            <h3 className="text-lg font-medium text-gray-900">Web Development</h3>
+                            <h3 className="text-lg font-medium">Web Development</h3>
                             <p className="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
                     <div className="flex items-center space-x-2">
-                        <SplineIcon className="size-6 text-gray-600" />
+                        <SplineIcon className="size-" />
                         <div>
-                            <h3 className="text-lg font-medium text-gray-900">UI/UX Design</h3>
+                            <h3 className="text-lg font-medium">UI/UX Design</h3>
                             <p className="text-sm text-gray-500">Figma Design and Brand Design.</p>
                         </div>
                     </div>
                     <div className="flex items-center space-x-2">
-                        <ReplyIcon className="size-6 text-gray-600" />
+                        <ReplyIcon className="size-6" />
                         <div>
-                            <h3 className="text-lg font-medium text-gray-900">Development</h3>
+                            <h3 className="text-lg font-medium">Development</h3>
                             <p className="text-sm text-gray-500">Development Project Lead in Various Section</p>
                         </div>
                     </div>

@@ -1,33 +1,33 @@
-*{
+
+* {
     scroll-behavior: smooth;
 }
 
-.container{
-    
-}
 
-.card-title{
+.card-title {
     width: 100%;
     font-weight: 700;
     letter-spacing: .1em;
 }
 
-.signup{
+.signin {
 
-    .card{
+    .card {
         border: 1px solid grey;
     }
-    
-    .input-group{
+
+    .input-group {
         position: relative;
         background-color: white;
         border-bottom: 1px solid grey;
-        input{
-            width: 250px;
+
+        input {
+            width: 300px;
         }
-        
+
     }
-    .input-icon{
+
+    .input-icon {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -42,21 +42,22 @@
     }
 }
 
-.logos:hover{
+.logos:hover {
     font-size: xx-large;
     transition: font-size .2s ease;
 }
 
-.signup input:focus{
+.signin input:focus {
     outline: none;
 }
 
-.signup-btn button{
+.signin-btn button {
     box-shadow: inset -0.4em -0.4em .6em rgba(0, 0, 0, 0.4), inset 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.4), 0.6em 0.6em 1.2em rgba(0, 0, 0, 0.4);
 }
 
-.signup-btn button:hover, button:focus{
+.signin-btn button:hover,
+button:focus {
     background-color: whitesmoke;
     // border: 1px solid black;
-    
+
 }
