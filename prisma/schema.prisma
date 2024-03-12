@@ -8,15 +8,15 @@ datasource db {
 }
 
 model skills {
-  skill_id   Int     @id @default(autoincrement())
+  skill_id   String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   skill      String? @db.VarChar(100)
   percentage Int?
-  gg_id      Int?
+  gg_id      String? @db.Uuid
   users      users?  @relation(fields: [gg_id], references: [gg_id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model users {
-  gg_id          Int       @id @default(autoincrement())
+  gg_id          String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   first_name     String?   @db.VarChar(50)
   last_name      String?   @db.VarChar(50)
   email          String    @unique @db.VarChar(100)
