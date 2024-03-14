@@ -30,5 +30,14 @@ model users {
   image_url      String?   @db.VarChar(255)
   description    String?
   address        String?   @db.VarChar(200)
+  dob            String?   @db.VarChar
   skills         skills[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model admin {
+  admin_id       String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  admin_username String @unique @db.VarChar(100)
+  admin_email    String @unique @db.VarChar(100)
+  admin_password String @db.VarChar(100)
 }

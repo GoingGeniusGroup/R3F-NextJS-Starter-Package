@@ -8,9 +8,9 @@ export async function GET(request, { params }) {
   try {
     const id = params.id
 
-    // Fetch the user by ID
-    const user = await prisma.users.findUnique({
-      where: { gg_id: id },
+    // Fetch the admin by ID
+    const user = await prisma.admin.findUnique({
+      where: { admin_id: id },
     })
 
     if (!user) {
@@ -23,45 +23,44 @@ export async function GET(request, { params }) {
     return NextResponse.error('Internal Server Error', 500)
   }
 }
-
 export async function PUT(request, { params }) {
   try {
     const data = await request.json()
     console.log(data)
-    const { first_name, last_name, email, phone_number, image_url, description, address, dob } = data
+    const { admin_username, admin_email } = data
     const id = params.id
 
-    // Check if the user exists
-    const existingUser = await prisma.users.findUnique({
-      where: { gg_id: id },
+    // Check if the admin exists
+    const existingUser = await prisma.admin.findUnique({
+      where: { admin_id: id },
     })
 
     if (!existingUser) {
       return NextResponse.error('User not found', 404)
     }
 
-    // If the user exists, update their information
-    const updatedUser = await prisma.users.update({
-      where: { gg_id: id },
-      data: { first_name, last_name, email, phone_number, image_url, description, address, dob },
+    // If the admin exists, update their information
+    const updatedUser = await prisma.admin.update({
+      where: { admin_id: id },
+      data: { admin_username, admin_email },
     })
     return NextResponse.json(updatedUser)
   } catch (error) {
-    console.error('Error Updating user', error)
+    console.error('Error Updating admin', error)
     return NextResponse.error('Internal Server Error', 500)
   }
 }
 
-//Function to delete user
+//Function to delete admin
 export async function DELETE(request, { params }) {
   try {
     const id = params.id
-    const deletedUser = await prisma.users.delete({
-      where: { gg_id: id },
+    const deletedUser = await prisma.admin.delete({
+      where: { admin_id: id },
     })
     return NextResponse.json(deletedUser)
   } catch (error) {
-    console.error('Error deleting user', error)
+    console.error('Error deleting admin', error)
     return NextResponse.error('Internal Server Error', 500)
   }
 }

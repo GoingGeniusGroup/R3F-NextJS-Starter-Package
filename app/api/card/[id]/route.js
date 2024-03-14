@@ -7,7 +7,7 @@ export async function PUT(request, { params }) {
   try {
     const data = await request.json()
     console.log(data)
-    const { first_name, last_name, phone_number, address } = data
+    const { first_name, last_name, phone_number, address, dob } = data
     const id = params.id
 
     // Check if the user exists
@@ -22,7 +22,7 @@ export async function PUT(request, { params }) {
     // If the user exists, update their information
     const updatedUser = await prisma.users.update({
       where: { gg_id: id },
-      data: { first_name, last_name, phone_number, address },
+      data: { first_name, last_name, phone_number, address, dob },
     })
     return NextResponse.json(updatedUser)
   } catch (error) {
