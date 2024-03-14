@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
  * @see https://github.com/shadowwalker/next-pwa/issues/424#issuecomment-1332258575
  */
 const withPWA = require('@ducanh2912/next-pwa').default({
-  dest: 'public',
+  dest: 'src',
   disable: process.env.NODE_ENV === 'development',
 })
 
@@ -33,28 +33,28 @@ const nextConfig = {
                 __dirname,
                 'node_modules/cesium/Build/Cesium/Workers'
               ),
-              to: '../public/Cesium/Workers',
+              to: '../src/Cesium/Workers',
             },
             {
               from: path.join(
                 __dirname,
                 'node_modules/cesium/Build/Cesium/ThirdParty'
               ),
-              to: '../public/Cesium/ThirdParty',
+              to: '../src/Cesium/ThirdParty',
             },
             {
               from: path.join(
                 __dirname,
                 'node_modules/cesium/Build/Cesium/Assets'
               ),
-              to: '../public/Cesium/Assets',
+              to: '../src/Cesium/Assets',
             },
             {
               from: path.join(
                 __dirname,
                 'node_modules/cesium/Build/Cesium/Widgets'
               ),
-              to: '../public/Cesium/Widgets',
+              to: '../src/Cesium/Widgets',
             },
           ],
         })
