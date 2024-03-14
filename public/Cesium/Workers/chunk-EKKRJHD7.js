@@ -23,5 +23,4 @@
  * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-require{a as C}from"./chunk-JMWWNZHX.js";require{a as g}from"./chunk-Z3SYNMQT.js";require{b as d}from"./chunk-4KGDZUZQ.js";require{e as i}from"./chunk-F3TINEFX.js";var u=C.EPSILON10;function x(e,r,h,l){if(d.defined("equalsEpsilon",r),!i(e))return;h=g(h,!1);let m=i(l),n=e.length;if(n<2)return e;let f,s=e[0],o,t,p=0,c=-1;for(f=1;f<n;++f)o=e[f],r(s,o,u)?(i(t)||(t=e.slice(0,f),p=f-1,c=0),m&&l.push(f)):(i(t)&&(t.push(o),p=f,m&&(c=l.length)),s=o);return h&&r(e[0],e[n-1],u)&&(m&&(i(t)?l.splice(c,0,p):l.push(n-1)),i(t)?t.length-=1:t=e.slice(0,-1)),i(t)?t:e}var a=x;export { a };
-
+import{a as C}from"./chunk-JMWWNZHX.js";import{a as g}from"./chunk-Z3SYNMQT.js";import{b as d}from"./chunk-4KGDZUZQ.js";import{e as i}from"./chunk-F3TINEFX.js";var u=C.EPSILON10;function x(e,r,h,l){if(d.defined("equalsEpsilon",r),!i(e))return;h=g(h,!1);let m=i(l),n=e.length;if(n<2)return e;let f,s=e[0],o,t,p=0,c=-1;for(f=1;f<n;++f)o=e[f],r(s,o,u)?(i(t)||(t=e.slice(0,f),p=f-1,c=0),m&&l.push(f)):(i(t)&&(t.push(o),p=f,m&&(c=l.length)),s=o);return h&&r(e[0],e[n-1],u)&&(m&&(i(t)?l.splice(c,0,p):l.push(n-1)),i(t)?t.length-=1:t=e.slice(0,-1)),i(t)?t:e}var a=x;export{a};
