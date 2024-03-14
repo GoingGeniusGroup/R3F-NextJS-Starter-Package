@@ -24,6 +24,7 @@
     "@react-three/postprocessing": "^2.16.0",
     "@readyplayerme/react-avatar-creator": "^0.5.0",
     "@readyplayerme/visage": "^5.0.1",
+    "cesium": "^1.115.0",
     "clsx": "^2.1.0",
     "glsl-random": "^0.0.5",
     "next": "^14.0.4",
@@ -39,6 +40,8 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^14.0.4",
     "autoprefixer": "^10.4.16",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.10.0",
     "encoding": "^0.1.13",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
@@ -48,11 +51,16 @@
     "framer-motion": "^10.16.4",
     "glslify": "^7.1.1",
     "glslify-loader": "^2.0.0",
+    "html-webpack-plugin": "^5.6.0",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
     "raw-loader": "^4.0.2",
     "sass": "^1.71.1",
+    "style-loader": "^3.3.4",
     "tailwindcss": "^3.4.0",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.3"
   }
 }
