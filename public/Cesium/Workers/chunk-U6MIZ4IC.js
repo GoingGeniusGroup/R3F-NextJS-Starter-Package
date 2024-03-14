@@ -23,4 +23,5 @@
  * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-import{a as e}from"./chunk-Z3SYNMQT.js";function a(t){t=e(t,e.EMPTY_OBJECT),this.position=t.position,this.normal=t.normal,this.st=t.st,this.bitangent=t.bitangent,this.tangent=t.tangent,this.color=t.color}var i=a;export{i as a};
+require{a as e}from"./chunk-Z3SYNMQT.js";function a(t){t=e(t,e.EMPTY_OBJECT),this.position=t.position,this.normal=t.normal,this.st=t.st,this.bitangent=t.bitangent,this.tangent=t.tangent,this.color=t.color}var i=a;export { i as a };
+

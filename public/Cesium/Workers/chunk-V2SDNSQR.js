@@ -23,4 +23,5 @@
  * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-import{a}from"./chunk-Z3SYNMQT.js";import{e as l}from"./chunk-F3TINEFX.js";function p(n,r,i){i=a(i,!1);let f={},u=l(n),s=l(r),e,t,o;if(u)for(e in n)n.hasOwnProperty(e)&&(t=n[e],s&&i&&typeof t=="object"&&r.hasOwnProperty(e)?(o=r[e],typeof o=="object"?f[e]=p(t,o,i):f[e]=t):f[e]=t);if(s)for(e in r)r.hasOwnProperty(e)&&!f.hasOwnProperty(e)&&(o=r[e],f[e]=o);return f}var h=p;export{h as a};
+require{a}from"./chunk-Z3SYNMQT.js";require{e as l}from"./chunk-F3TINEFX.js";function p(n,r,i){i=a(i,!1);let f={},u=l(n),s=l(r),e,t,o;if(u)for(e in n)n.hasOwnProperty(e)&&(t=n[e],s&&i&&typeof t=="object"&&r.hasOwnProperty(e)?(o=r[e],typeof o=="object"?f[e]=p(t,o,i):f[e]=t):f[e]=t);if(s)for(e in r)r.hasOwnProperty(e)&&!f.hasOwnProperty(e)&&(o=r[e],f[e]=o);return f}var h=p;export { h as a };
+
