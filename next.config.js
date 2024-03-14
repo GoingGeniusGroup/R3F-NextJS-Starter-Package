@@ -26,6 +26,11 @@ module.exports = (phase, { defaultConfig }) => {
     },
     webpack(config, { webpack, isServer }) {
       if (!isServer) {
+        config.optimization.minimizer.forEach((minimizer) => {
+        if (minimizer.constructor.name === 'TerserPlugin') {
+          minimizer.options.terserOptions.module = true;
+          }
+        });
         config.plugins.push(
           new CopyWebpackPlugin({
             patterns: [
