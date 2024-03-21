@@ -56,9 +56,22 @@ export async function POST(request) {
 //Function to read user data
 export async function GET() {
   try {
+    // Fetch users' data including DOB and address
+    const usersWithDetails = await prisma.users.findMany({
+      select: {
+        dob: true,
+        address: true,
+      },
+    })
+
+    // Extract DOB and address fields into separate arrays
+    const dobArray = usersWithDetails.map((user) => user.dob)
+    const addressArray = usersWithDetails.map((user) => user.address)
+
+    // Fetch total user count, user data, etc.
     const userCount = await prisma.users.count()
     const users = await prisma.users.findMany()
-    return NextResponse.json({ count: userCount, users: users })
+    return NextResponse.json({ count: userCount, users: users, dob: dobArray, address: addressArray })
   } catch (error) {
     console.error('Error fetching users', error)
     return NextResponse.error('Internal Server Error', 500)
