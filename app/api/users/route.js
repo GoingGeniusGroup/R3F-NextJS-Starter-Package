@@ -56,8 +56,9 @@ export async function POST(request) {
 //Function to read user data
 export async function GET() {
   try {
+    const userCount = await prisma.users.count()
     const users = await prisma.users.findMany()
-    return NextResponse.json(users)
+    return NextResponse.json({ count: userCount, users: users })
   } catch (error) {
     console.error('Error fetching users', error)
     return NextResponse.error('Internal Server Error', 500)
