@@ -19,6 +19,8 @@ import { TagsInput } from 'react-tag-input-component'
 import dynamic from 'next/dynamic'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
+import { IoHome } from 'react-icons/io5'
+
 export default function ExperienceComponent({ onNextButtonClick, onPrevButtonClick, isSmallScreen }) {
   const { user } = useUser()
   const [projects, setProjects] = useState([
@@ -30,12 +32,14 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
     const fetchExpData = () => {
       try {
         if (user.experience.length !== 0) {
+
           // const modifiedProjects = user.experience.map((exp) => ({
           //   ...exp, // Keep all properties of the original experience object
           //   skills: exp.skills.map((skill) => skill.skill), // Modify the 'skills' property
           // }))
           // setProjects(modifiedProjects)
           // console.log(modifiedProjects)
+
           setProjects(user.experience)
         }
       } catch (error) {
@@ -68,11 +72,9 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
         method: 'POST',
         data: submit,
       })
-      alert('exp info saved')
-      window.location.reload()
-      return
+      alert('Experience Info saved')
     } catch (error) {
-      throw new Error('failed to save the exp info')
+      alert('failed to save the exp info')
     }
   }
   const handleExpUpdate = async (e: any, index: number, experience_id) => {
@@ -91,12 +93,9 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
         method: 'PUT',
         data: submit,
       })
-      alert('exp info updated')
-      window.location.reload()
-      return
+      alert('Experience info updated')
     } catch (error) {
-      console.error(error)
-      throw new Error('failed to update the exp info')
+      alert('Error updating exp info')
     }
   }
 
@@ -106,12 +105,11 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
         url: `/api/internal/experience/${experience_id}`,
         method: 'DELETE',
       })
-      alert('exp info deleted')
-      window.location.reload()
-      return
+      alert('Experience info deleted')
     } catch (error) {
-      console.error(error)
-      // throw new Error('failed to delete the exp info')
+
+      alert('Error deleting exp info')
+
     }
   }
 
@@ -174,10 +172,10 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
 
   return (
     <div className='-ml-3 mb-12 mt-2 flex flex-col items-center md:mb-0 md:ml-0'>
-      <div className='relative flex flex-col py-4 md:w-[600px] md:rounded-3xl md:border md:border-[#a5a4a8]/40 md:bg-[#F8F8F8]/10 md:px-10 md:shadow-inner md:shadow-purple-700/70 md:backdrop-blur-md lg:h-[550px] lg:w-[800px]'>
-        <div className='flex w-full flex-col '>
-          <div className='relative my-3 flex justify-center text-2xl drop-shadow lg:my-5 lg:text-7xl'>
-            Experience
+      <div className='relative flex flex-col py-4 md:w-[600px] md:rounded-3xl md:bg-black/10 md:px-10 md:shadow-md md:shadow-purple-700 md:backdrop-blur-md lg:h-[550px] lg:w-[800px]'>
+        <div className='flex h-screen w-full flex-col '>
+          <div className='relative my-3 flex justify-center text-2xl font-semibold drop-shadow lg:my-5 lg:text-5xl'>
+            EXPERIENCE
             <div className='absolute right-0 top-10 text-sm'>
               <DrawOutlineButton
                 onClick={() => {
@@ -282,19 +280,19 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                             <div>
                               <input
                                 type='radio'
-                                aria-label='gym'
-                                id='gym'
+                                aria-label='emergency'
+                                id='emergency'
                                 name='type'
-                                value='gym'
-                                checked={project.type === 'gym'}
+                                value='emergency'
+                                checked={project.type === 'emergency'}
                                 onChange={(e) => handleProjectTypeChange(index, e.target.value)}
                                 className='hidden'
                               />
                               <label
-                                htmlFor='gym'
-                                className={` ${project.type === 'gym' ? 'font-bold text-purple-400' : 'text-white hover:text-purple-400'}`}
+                                htmlFor='emergency'
+                                className={` ${project.type === 'emergency' ? 'font-bold text-purple-400' : 'text-white hover:text-purple-400'}`}
                               >
-                                Gym
+                                Emergency
                               </label>
                             </div>
                           </div>
@@ -360,14 +358,50 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                             </div>
                           </div>
                         </div>
-                        {/* Submit button */}
-                        <div className='relative mt-4 flex gap-x-2'>
-                          <div className='mt-1'>
-                            <DrawOutlineButton aria-label='generate button' type='submit'>
-                              Generate
+                        {/* Next and Generate Button */}
+                        {!isSmallScreen ? (
+                          <>
+                            <div className='mt-4'>
+                              <DrawOutlineButton type='submit' aria-label='generate'>
+                                Generate
+                              </DrawOutlineButton>
+                            </div>
+                            <div className='absolute bottom-4 right-4'>
+                              <Link href='/hero3'>
+                                <button
+                                  className='mr-2 rounded-full bg-purple-400/20 transition-all duration-150 hover:scale-105 hover:bg-purple-300/30'
+                                  type='submit'
+                                  aria-label='home btn'
+                                >
+                                  <p className='p-4'>
+                                    <IoHome />
+                                  </p>
+                                </button>
+                              </Link>
+                              <button
+                                className='rounded-full bg-purple-400/20 transition-all duration-150 hover:scale-105 hover:bg-purple-300/30'
+                                type='submit'
+                                onClick={onNextButtonClick}
+                                aria-label='next'
+                              >
+                                <p className='p-4'>
+                                  <FaArrowRight />
+                                </p>
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <div className='absolute bottom-4 right-4 flex gap-x-1'>
+                            <Link href='/hero3'>
+                              <DrawOutlineButton type='submit' onClick={onNextButtonClick} aria-label='next slide'>
+                                <IoHome className='my-1' />
+                              </DrawOutlineButton>
+                            </Link>
+                            <DrawOutlineButton type='submit' onClick={onNextButtonClick} aria-label='next slide'>
+                              Next
                             </DrawOutlineButton>
                           </div>
-                        </div>
+                        )}
                       </form>
                     ) : (
                       <form
@@ -415,19 +449,19 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                             <div>
                               <input
                                 type='radio'
-                                aria-label='gym'
-                                id='gym'
+                                aria-label='emergency'
+                                id='emergency'
                                 name='type'
-                                value='gym'
-                                checked={project.type === 'gym'}
+                                value='emergency'
+                                checked={project.type === 'emergency'}
                                 onChange={(e) => handleProjectTypeChange(index, e.target.value)}
                                 className='hidden'
                               />
                               <label
-                                htmlFor='gym'
-                                className={` ${project.type === 'gym' ? 'font-bold text-purple-400' : 'text-white hover:text-purple-400'}`}
+                                htmlFor='emergency'
+                                className={` ${project.type === 'emergency' ? 'font-bold text-purple-400' : 'text-white hover:text-purple-400'}`}
                               >
-                                Gym
+                                Emergency
                               </label>
                             </div>
                           </div>
@@ -470,7 +504,7 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                           </div>
                           <div className='flex flex-col lg:flex-row lg:justify-between'>
                             <label htmlFor=''>Skills</label>
-                            <div className='text-sm text-gray-900 focus:outline-none lg:w-[70%]  dark:bg-white dark:text-black dark:placeholder:text-black'>
+                            <div className='bg-black text-sm text-gray-900 focus:outline-none lg:w-[70%] dark:text-black dark:placeholder:text-black'>
                               <TagsInput
                                 value={project.project_skills}
                                 onChange={(tags) => handleSkillsChange(index, tags)}
@@ -482,7 +516,7 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                           </div>
                           <div className='flex flex-col lg:flex-row lg:justify-between'>
                             <label htmlFor=''>Tools</label>
-                            <div className='text-sm text-gray-900 focus:outline-none lg:w-[70%]  dark:bg-white dark:text-black dark:placeholder:text-black'>
+                            <div className='bg-black text-sm text-gray-900 focus:outline-none  lg:w-[70%] dark:text-black dark:placeholder:text-black'>
                               <TagsInput
                                 value={project.tools}
                                 onChange={(tags) => handleToolsChange(index, tags)}
@@ -493,14 +527,50 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                             </div>
                           </div>
                         </div>
-                        {/* Submit button */}
-                        <div className='relative mt-4 flex gap-x-2'>
-                          <div className='mt-1'>
-                            <DrawOutlineButton aria-label='generate button' type='submit'>
-                              Generate
+                        {/* Next and Update Button */}
+                        {!isSmallScreen ? (
+                          <>
+                            <div className='mt-4'>
+                              <DrawOutlineButton type='submit' aria-label='update'>
+                                Update
+                              </DrawOutlineButton>
+                            </div>
+                            <div className='absolute bottom-4 right-4'>
+                              <Link href='/hero3'>
+                                <button
+                                  className='mr-2 rounded-full bg-purple-400/20 transition-all duration-150 hover:scale-105 hover:bg-purple-300/30'
+                                  type='submit'
+                                  aria-label='home btn'
+                                >
+                                  <p className='p-4'>
+                                    <IoHome />
+                                  </p>
+                                </button>
+                              </Link>
+                              <button
+                                className='rounded-full bg-purple-400/20 transition-all duration-150 hover:scale-105 hover:bg-purple-300/30'
+                                type='submit'
+                                onClick={onNextButtonClick}
+                                aria-label='next'
+                              >
+                                <p className='p-4'>
+                                  <FaArrowRight />
+                                </p>
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <div className='absolute bottom-4 right-4 flex gap-x-1'>
+                            <Link href='/hero3'>
+                              <DrawOutlineButton type='submit' onClick={onNextButtonClick} aria-label='next slide'>
+                                <IoHome className='my-1' />
+                              </DrawOutlineButton>
+                            </Link>
+                            <DrawOutlineButton type='submit' onClick={onNextButtonClick} aria-label='next slide'>
+                              Next
                             </DrawOutlineButton>
                           </div>
-                        </div>
+                        )}
                       </form>
                     )}
                   </div>
@@ -508,6 +578,8 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
               </TabPanel>
             ))}
           </Tabs>
+
+          {/* Back Button */}
 
           {!isSmallScreen ? (
             <div>
@@ -522,6 +594,7 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                   </p>
                 </button>
               </div>
+
               <div className='absolute bottom-4 right-4 mt-4'>
                 <button
                   className='rounded-full bg-purple-400/20 transition-all duration-150 hover:scale-105 hover:bg-purple-300/30'
@@ -533,17 +606,21 @@ export default function ExperienceComponent({ onNextButtonClick, onPrevButtonCli
                   </p>
                 </button>
               </div>
+
+
             </div>
           ) : (
             <div>
               <div className='absolute bottom-4 left-4 mt-4'>
                 <DrawOutlineButton onClick={onPrevButtonClick} aria-label='prev'>
+
                   <p className='px-4'>Back</p>
                 </DrawOutlineButton>
               </div>
               <div className='absolute bottom-4 right-4'>
                 <DrawOutlineButton onClick={onNextButtonClick} aria-label='next slide'>
                   Next
+
                 </DrawOutlineButton>
               </div>
             </div>

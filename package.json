@@ -39,6 +39,7 @@
     "embla-carousel-react": "^8.0.2",
     "geojson-world-map": "^0.0.2",
     "glsl-random": "^0.0.5",
+    "hamburger-react": "^2.5.1",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",

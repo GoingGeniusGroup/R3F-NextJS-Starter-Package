@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-
+import { useState, useEffect, useCallback } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 
@@ -32,6 +31,21 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
     if (emblaApi) emblaApi.scrollTo(index)
   }
 
+  const handleScroll = useCallback(
+    (event) => {
+      if (!emblaApi) return
+
+      const deltaY = event.deltaY
+
+      if (deltaY > 0) {
+        emblaApi.scrollNext()
+      } else if (deltaY < 0) {
+        emblaApi.scrollPrev()
+      }
+    },
+    [emblaApi],
+  )
+
   useEffect(() => {
     if (emblaApi) {
       emblaApi.on('select', () => {
@@ -49,14 +63,18 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
 
     handleResize()
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    window.addEventListener('wheel', handleScroll)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('wheel', handleScroll)
+    }
+  }, [handleScroll])
 
   return (
     <>
       <section className='mx-auto mt-20 w-full'>
         <div className='overflow-hidden' ref={emblaRef}>
-          <div className='flex'>
+          <div className='mb-5 flex'>
             {[
               <UserInfoComponent
                 key='UserInfoComponent'
@@ -102,9 +120,10 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
         </div>
       </section>
 
-      <footer className='fixed inset-x-0 bottom-4 flex justify-center'>
-        <div className='flex items-center justify-center'>
-          <div className='flex gap-2 rounded-3xl p-2 shadow-md shadow-[#6B37CA] backdrop-blur-md md:h-10 md:items-center md:justify-center md:gap-7'>
+      <footer className='fixed inset-x-0 bottom-4 flex flex-col items-center justify-center'>
+        <div className='mt-2 flex items-center justify-center'>
+          <div className='flex gap-2 rounded-3xl p-2 px-7 shadow shadow-[#6B37CA] backdrop-blur-md md:h-10 md:items-center md:justify-center md:gap-7'>
+
             {tabs.map((tab, index) => (
               <Chip
                 key={tab}
@@ -114,6 +133,14 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
               />
             ))}
           </div>
+        </div>
+        <div className='flex w-full justify-start'>
+          <motion.div
+            className='-mb-4 mt-2 h-2 w-full rounded-r-full bg-gradient-to-r from-blue-400 to-green-500'
+            initial={{ width: 0 }}
+            animate={{ width: `${((slideIndex + 0.2) / (tabs.length - 1)) * 100}%` }}
+            transition={{ type: 'spring', duration: 0.5 }}
+          />
         </div>
       </footer>
     </>

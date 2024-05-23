@@ -11,6 +11,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 
 import { TiDelete } from 'react-icons/ti'
+import { IoHome } from 'react-icons/io5'
+
 import Link from 'next/link'
 
 import axios from 'axios'
@@ -236,11 +238,11 @@ export default function SkillsComponent({ onPrevButtonClick, isSmallScreen }) {
     <div className='-ml-3 mb-12 mt-2 flex flex-col items-center md:ml-0 lg:mb-0'>
       <div
         id='card'
-        className='relative flex h-[900px] w-[300px] flex-col py-4 md:w-[600px] md:rounded-3xl  md:border  md:border-[#a5a4a8]/40 md:bg-[#F8F8F8]/10 md:px-10 md:shadow-inner md:shadow-purple-700/70 md:backdrop-blur-md lg:h-[550px] lg:w-[800px]'
+        className='relative flex h-[900px] w-[300px] flex-col py-4 md:w-[600px] md:rounded-3xl md:bg-black/10 md:px-10 md:shadow-md md:shadow-purple-700 md:backdrop-blur-md lg:h-[550px] lg:w-[800px]'
       >
         <div className='flex w-full flex-col'>
-          <div className='relative my-3 flex justify-center text-2xl drop-shadow lg:my-5 lg:text-7xl'>
-            Skills
+          <div className='relative my-3 flex justify-center text-2xl font-semibold drop-shadow lg:my-5 lg:text-5xl'>
+            SKILLS
             <div className='absolute right-0 top-10 text-sm '>
               <DrawOutlineButton
                 onClick={() => {
@@ -313,13 +315,38 @@ export default function SkillsComponent({ onPrevButtonClick, isSmallScreen }) {
                               aria-label='file input'
                             />
                           </div>
-                          <div className='mb-20 flex justify-center gap-x-2 lg:mb-0'>
-                            <div className='-mt-2'>
-                              <DrawOutlineButton type='submit' aria-label='generate button'>
-                                Generate
-                              </DrawOutlineButton>
+
+                          {/* Go Home and Generate Button */}
+                          {!isSmallScreen ? (
+                            <>
+                              <div className='mt-4 flex justify-center'>
+                                <DrawOutlineButton type='submit' aria-label='generate'>
+                                  Generate
+                                </DrawOutlineButton>
+                              </div>
+                              <div className='absolute bottom-4 right-4'>
+                                <Link href='/hero3'>
+                                  <button
+                                    className='rounded-full bg-purple-400/20 transition-all duration-150 hover:scale-105 hover:bg-purple-300/30'
+                                    type='submit'
+                                    aria-label='home btn'
+                                  >
+                                    <p className='p-4'>
+                                      <IoHome />
+                                    </p>
+                                  </button>
+                                </Link>
+                              </div>
+                            </>
+                          ) : (
+                            <div className='absolute bottom-4 right-4'>
+                              <Link href='/hero3'>
+                                <DrawOutlineButton type='submit' aria-label='go to home page'>
+                                  Go To Home
+                                </DrawOutlineButton>
+                              </Link>
                             </div>
-                          </div>
+                          )}
                         </TabPanel>
                       </form>
                     ) : (
@@ -362,13 +389,32 @@ export default function SkillsComponent({ onPrevButtonClick, isSmallScreen }) {
                               aria-label='file input'
                             />
                           </div>
-                          <div className='mb-20 flex justify-center gap-x-2 lg:mb-0'>
-                            <div className='-mt-2'>
-                              <DrawOutlineButton type='submit' aria-label='generate button'>
-                                Generate
-                              </DrawOutlineButton>
+                          {/* Go Home and Update Button */}
+                          {!isSmallScreen ? (
+                            <>
+                              <div className='mt-4 flex justify-center'>
+                                <DrawOutlineButton type='submit' aria-label='generate'>
+                                  Update
+                                </DrawOutlineButton>
+                              </div>
+                              <div className='absolute bottom-4 right-4'>
+                                <Link href='/hero3'>
+                                  <DrawOutlineButton type='submit' aria-label='go to home page'>
+                                    Go To Home
+                                  </DrawOutlineButton>
+                                </Link>
+                              </div>
+                            </>
+                          ) : (
+                            <div className='absolute bottom-4 right-4'>
+                              <Link href='/hero3'>
+                                <DrawOutlineButton type='submit' aria-label='go to home page'>
+                                  Go To Home
+                                </DrawOutlineButton>
+                              </Link>
                             </div>
-                          </div>
+                          )}
+
                         </TabPanel>
                       </form>
                     )}
@@ -418,7 +464,9 @@ export default function SkillsComponent({ onPrevButtonClick, isSmallScreen }) {
                         data={skills}
                       >
                         <PolarGrid />
-                        <PolarAngleAxis dataKey='skill' />
+
+                        <PolarAngleAxis dataKey='skill_name' />
+
                         <PolarRadiusAxis opacity={0} domain={[0, 100]} />
                         <Radar
                           name='Ram'
@@ -430,7 +478,9 @@ export default function SkillsComponent({ onPrevButtonClick, isSmallScreen }) {
                         />
                         {/* <Tooltip /> */}
                         {/* <Legend values="100%" /> */}
-                        <Tooltip content={<CustomTooltip active={false} payload={[]} label='' />} />
+
+                        <Tooltip content={<CustomTooltip active={false} payload={[]} label='skill_name' />} />
+
                       </RadarChart>
                     </ResponsiveContainer>
                   )}
@@ -438,6 +488,7 @@ export default function SkillsComponent({ onPrevButtonClick, isSmallScreen }) {
               </div>
             </div>
           </Tabs>
+
 
           <div className='absolute bottom-4 right-0 lg:right-4'>
             <Link href='/hero3'>
@@ -460,6 +511,7 @@ export default function SkillsComponent({ onPrevButtonClick, isSmallScreen }) {
           ) : (
             <div className='absolute bottom-4 left-4 mt-4'>
               <DrawOutlineButton onClick={onPrevButtonClick} aria-label='prev'>
+
                 <p className='px-4'>Back</p>
               </DrawOutlineButton>
             </div>
