@@ -8,6 +8,8 @@ import { useCallback, useEffect, useState, useRef } from 'react'
 import SpringModal from '@/components/FormModal/SpringModal' //----------------> module not found error in my branch
 import { TbCards } from 'react-icons/tb'
 
+import Hud from './PublicProfileComponent/PrivateProfileComponents/Hud'
+
 // For the card flip QR code
 import QRCode from 'qrcode'
 import { usePathname } from 'next/navigation'
@@ -612,6 +614,18 @@ export default function PrivateProfile() {
           </button>
         </div>
       </div>
+
+      {user ? (
+        <div className='fixed bottom-2 w-full justify-center'>
+          <Hud loggedIn={true} />
+        </div>
+      ) : (
+        <div className='fixed bottom-2 w-full justify-center'>
+          <div>
+            <Hud loggedIn={false} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

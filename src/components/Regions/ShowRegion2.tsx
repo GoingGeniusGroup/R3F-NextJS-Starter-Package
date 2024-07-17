@@ -56,7 +56,7 @@ export default function ShowRegion2({ filter }: { filter: string }) {
         <div className='flex w-full justify-end pr-5'>
           <div className='h-[550px] w-[50%]'>
             <Suspense fallback={<div>Loading map...</div>}>
-              <MapComponent filteredContinent={filter} />
+              {/* <MapComponent filteredContinent={filter} /> */}
             </Suspense>
             {/* <Image src='/svgs/na.svg' width={500} height={500} alt='world map' /> */}
           </div>

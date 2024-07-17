@@ -15,7 +15,6 @@ import AboutUser from './ProfileInfoComponents/AboutUser'
 import ProfileButtons from './ProfileInfoComponents/ProfileButtons'
 import ExperienceShow from './ExperienceShow'
 import { HiOutlineInformationCircle } from 'react-icons/hi2'
-import { RiMedalLine } from 'react-icons/ri'
 import { IoMdPhotos } from 'react-icons/io'
 import { SiCompilerexplorer } from 'react-icons/si'
 
@@ -123,7 +122,6 @@ export default function UserContent({ user, skillsData, guild, experience }) {
                   </button>
                 </div>
               </nav>
-
               {/* CoverPicture */}
               <div className='mt-3 flex w-full items-center justify-center' id='section0' ref={sectionInfoRef}>
                 <CoverPhoto coverPhotoUrl={user.username} height={160} />
@@ -132,11 +130,7 @@ export default function UserContent({ user, skillsData, guild, experience }) {
               <div className='flex w-full flex-col items-center gap-x-5 py-8 md:flex-row'>
                 <div className='-mt-20 md:mt-0'>
                   <ProfilePic
-                    profilePicUrl={
-                      user.image_urls.length !== 0
-                        ? user.image_urls[user.image_urls.length - 1]
-                        : '/card/defaultbuddha.svg'
-                    }
+                    profilePicUrl={user.user_image ? user.user_image : '/card/defaultbuddha.svg'}
                     size={isSmallScreen ? 90 : 160}
                   />
                 </div>
@@ -156,7 +150,7 @@ export default function UserContent({ user, skillsData, guild, experience }) {
               <div className='flex flex-col pl-4 '>
                 <div className='group absolute right-7 top-16'>
                   <Image
-                    src={guild.find((guild) => guild.id === user.guild_id)?.symbol || ''}
+                    src={guild.find((guild) => guild.guild_name === user.guild)?.symbol || ''}
                     height={30}
                     width={30}
                     alt='guild'
@@ -164,7 +158,9 @@ export default function UserContent({ user, skillsData, guild, experience }) {
                     className='rounded-full border-2 border-white/50 transition-all duration-300 ease-in-out hover:rotate-180 group-hover:border-white/100'
                   />
                   <HoverGuild
-                    hoveredGuild={guild.find((guild) => guild.id === user.guild_id)?.guild_name.toUpperCase() || ''}
+                    hoveredGuild={
+                      guild.find((guild) => guild.guild_name === user.guild)?.guild_name.toUpperCase() || ''
+                    }
                     top={10}
                     left={-350}
                     translateY={10}
@@ -196,7 +192,6 @@ export default function UserContent({ user, skillsData, guild, experience }) {
                   )}
                 </div>
               </div>
-
               {/* Experience Card Show */}
               <div className='relative flex size-full px-10 py-3' id='section3' ref={sectionExperienceRef}>
                 <ExperienceShow user={user} experience={experience} handleIsFlip={handleIsFlip} />

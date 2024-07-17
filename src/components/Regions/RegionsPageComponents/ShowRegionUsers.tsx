@@ -33,8 +33,6 @@ export default function ShowRegionUsers({
     setShowInfos((prev) => ({ ...prev, [index]: !prev[index] }))
   }
 
-  console.log(users)
-
   // Filter based on guild, continent, and search term
   const filteredFactions = users.filter((user) => {
     return (
@@ -60,7 +58,7 @@ export default function ShowRegionUsers({
               <div className='relative flex size-full items-center justify-center'>
                 {/* Switch */}
                 <div
-                  className='absolute bottom-6 z-40 flex h-[22px] w-[40px] cursor-pointer justify-start rounded-full bg-black/30 p-[3px] shadow-inner shadow-white/30'
+                  className='absolute left-6 top-6 z-40 flex h-[22px] w-[40px] cursor-pointer justify-start rounded-full bg-black/30 p-[3px] shadow-inner shadow-white/30'
                   onClick={() => handlePicChange(index)}
                 >
                   <div

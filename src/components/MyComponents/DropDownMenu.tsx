@@ -73,7 +73,7 @@ const DropdownComponent = <T extends string | object>({
     <div ref={dropdownRef}>
       <button
         onClick={() => !disabled && setIsOpen(!isOpen)}
-        className={`flex items-center justify-between whitespace-nowrap rounded-full bg-black p-2 text-xs font-semibold text-white shadow transition-all duration-300 ease-in-out focus:text-violet-300 focus:outline-none focus:ring-1 focus:ring-violet-300 ${
+        className={`flex items-center justify-between whitespace-nowrap rounded-full bg-black p-2 text-xs font-semibold text-white shadow transition-all duration-300 ease-in-out hover:bg-gray-700 focus:text-violet-300 focus:outline-none focus:ring-1 focus:ring-violet-300 ${
           disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
         }`}
         disabled={disabled}
@@ -86,11 +86,11 @@ const DropdownComponent = <T extends string | object>({
       <AnimatePresence>
         {isOpen && (
           <motion.ul
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className='absolute left-0 top-16 z-20 grid max-h-[450px] w-full grid-cols-3 justify-center gap-4 overflow-auto rounded-2xl border border-gray-300 bg-white p-4 text-black shadow-lg'
+            className='absolute bottom-16 left-0 z-20 grid max-h-[450px] w-full grid-cols-3 justify-center gap-4 overflow-auto rounded-2xl border border-gray-300 bg-white p-4 text-black shadow-lg '
           >
             {data.map((item, index) => (
               <motion.li
