@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { useEffect, useState, useRef } from 'react'
 import toast from 'react-hot-toast'
 import { FaAnglesUp } from 'react-icons/fa6'
-const Avatar = dynamic(() => import('@/components/Avatar').then((mod) => mod.Avatar))
+const Avatar = dynamic(() => import('@/components/Avatar').then((mod) => mod.Avatar), { ssr: false })
 import UserContent from './PublicProfileComponent/UserContent'
 
 const getSelectedPublicUser = async (username) => {

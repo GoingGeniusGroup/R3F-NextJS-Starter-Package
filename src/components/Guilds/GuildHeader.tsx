@@ -8,7 +8,7 @@ import 'swiper/css'
 
 // import CustomToolTip from '../Hud/CustomToolTip'
 
-const CustomToolTip = dynamic(() => import('../MyComponents/CustomToolTip').then((mod) => mod.default))
+const CustomToolTip = dynamic(() => import('../MyComponents/CustomToolTip').then((mod) => mod.default), { ssr: false })
 
 export default function GuildHeader({
   onFilterChange,
@@ -187,7 +187,7 @@ export default function GuildHeader({
             ? facultyTags.map((tag, index) => (
                 <SwiperSlide key={index} style={{ width: 'auto' }}>
                   <p
-                    className='bg-white inline-block whitespace-nowrap cursor-pointer rounded p-1 transition-all duration-500 ease-in-out hover:scale-105 mx-2'
+                    className='mx-2 inline-block cursor-pointer whitespace-nowrap rounded bg-white p-1 transition-all duration-500 ease-in-out hover:scale-105'
                     onClick={() => handleInputTagsChange(tag)}
                   >
                     {tag}

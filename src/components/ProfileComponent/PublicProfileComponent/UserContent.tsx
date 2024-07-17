@@ -9,7 +9,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import CoverPhoto from './ProfileInfoComponents/CoverPhoto'
 import ProfilePic from './ProfileInfoComponents/ProfilePic'
-const HoverGuild = dynamic(() => import('@/components/HoverEffect/HoverGuild'))
+const HoverGuild = dynamic(() => import('@/components/HoverEffect/HoverGuild'), { ssr: false })
 import AchievementsComponent from './ProfileInfoComponents/AchievementsComponent'
 import AboutUser from './ProfileInfoComponents/AboutUser'
 import ProfileButtons from './ProfileInfoComponents/ProfileButtons'

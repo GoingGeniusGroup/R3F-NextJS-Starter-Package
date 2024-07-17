@@ -15,8 +15,9 @@ import { MdArrowUpward } from 'react-icons/md'
 import { MdOutlineChangeCircle } from 'react-icons/md'
 import { FaChevronDown } from 'react-icons/fa'
 
-const ExpCardShowVertical = dynamic(() =>
-  import('../ProfileComponent/PublicProfileComponent/ExpCardShowVeritcal').then((mod) => mod.default),
+const ExpCardShowVertical = dynamic(
+  () => import('../ProfileComponent/PublicProfileComponent/ExpCardShowVeritcal').then((mod) => mod.default),
+  { ssr: false },
 )
 
 export default function ShowGuildDiscover({
