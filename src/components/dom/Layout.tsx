@@ -41,11 +41,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           showSignUp={showSignUp}
         />
       </div>
-      <div className='absolute bottom-0 w-full'>
+      {/* <div className='absolute bottom-0 w-full'>
         <div className='flex justify-center'>
           <Hud />
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
