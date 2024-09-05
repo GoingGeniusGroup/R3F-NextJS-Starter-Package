@@ -250,6 +250,8 @@ export default function PrivateProfile() {
   const handleFlip = () => {
     setIsFlipped(!isFlipped)
   }
+
+  useS
   // Avatar
   useEffect(() => {
     const fetchAvatarsData = async () => {
