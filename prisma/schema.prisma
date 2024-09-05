@@ -57,6 +57,24 @@ model skills {
   users          users?   @relation(fields: [gg_id], references: [gg_id], onDelete: Cascade, onUpdate: NoAction)
 }
 
+// model Account {
+//   id                String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+//   type              String
+//   provider          String
+//   providerAccountId String
+//   refresh_token     String?
+//   access_token      String?
+//   expires_at        Int? // Unix timestamp, for when the access token expires
+//   token_type        String?
+//   scope             String?
+//   id_token          String?
+//   session_state     String?
+
+//   user   users  @relation(fields: [userId], references: [gg_id], onDelete: Cascade)
+//   userId String
+//   @@unique([provider, providerAccountId])
+// }
+
 model users {
   gg_id          String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   first_name     String?      @db.VarChar(50)
@@ -82,6 +100,12 @@ model users {
   experience     experience[]
   skills         skills[]
 }
+
+// model Profile {
+
+//     id          String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+   
+// }
 
 model guilds {
   description      String?
