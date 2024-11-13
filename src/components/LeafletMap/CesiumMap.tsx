@@ -69,8 +69,7 @@ const CesiumMap = ({
       if (!cesiumRef.current) {
         // CesiumJS has a default access token built in but it's not meant for active use.
         // Please set your own access token can be found at: https://cesium.com/ion/tokens.
-        Ion.defaultAccessToken =
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkZGUzY2FhOC00M2ViLTQ2ZmQtYWQ1Yy1kYzNhYzFhZmVkZjIiLCJpZCI6MjAwOTU1LCJpYXQiOjE3MTAyMjkxNDF9.09cBca1kjkwB2lSOjuJMFMjOUV1DWT75cHXqT3zGxIU'
+        Ion.defaultAccessToken = process.env.CESIUM_ACCESS_TOKEN
 
         // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
         cesiumRef.current = new CesiumWidget('cesiumContainer')
